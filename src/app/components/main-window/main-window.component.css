@@ -1,0 +1,35 @@
+.container{
+    background-image: url(/cat.png);
+    background-repeat:no-repeat;
+    background-size:50%;
+    background-position: center;
+    background-color: rgb(213, 210, 204);
+    
+    width:100%;
+    display: flex;
+    height:100%;
+
+    align-items: flex-start;
+    position:relative;
+}
+img{
+    margin:0px;
+    padding:0px;
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+}
+figure{
+    text-align: center;
+    margin: 10px;
+}
+figcaption {
+    cursor: default;
+    text-shadow: 0px 1px 2px black; 
+    font-family: 'MedievalSharp', cursive;
+}
+figure:hover{
+    background-color: rgba(51, 116, 194, 0.2);
+}
+

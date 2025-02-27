@@ -1,0 +1,51 @@
+.taskbar{
+    height: 50px;
+    width: 100%;
+    background: linear-gradient(to bottom, #3a4e59, #1A252F);
+    border-top: 2px solid #5C6770;
+    
+    display:flex;
+    flex-direction: row;
+}
+.windows-button{
+    text-align: center;
+    background-color: transparent;
+}
+#windows-icon{
+    margin:0px;
+    padding:0px;
+    font-size: 40px;
+}
+.search-container{
+    display: flex;
+    align-items: stretch;
+    padding:0px;
+    margin:0px;
+    height:100%;
+    width:300px;
+    position:relative;
+}
+.search-bar{
+    padding:5px 40px;
+    margin:0px;
+    width:100%;
+    font-family: 'MedievalSharp', cursive;
+    font-weight:bold;
+    font-size: 16px;
+}
+#icon{
+    position:absolute;
+    left:13px;
+    top: 13px;
+    font-size:20px
+}
+
+.menu-container{
+    position:absolute;
+    width:400px;
+    height:60%;
+    background-color: rgb(45, 43, 43);
+    
+    box-shadow: 0px 1px 5px black;
+}
+
