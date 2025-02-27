@@ -11,6 +11,9 @@
     text-align: center;
     background-color: transparent;
 }
+.windows-button:hover{
+    color:rgb(65, 65, 245);
+}
 #windows-icon{
     margin:0px;
     padding:0px;
@@ -39,7 +42,6 @@
     top: 13px;
     font-size:20px
 }
-
 .menu-container{
     position:absolute;
     width:400px;

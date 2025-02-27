@@ -4,7 +4,7 @@
         <i class="fa fa-search" aria-hidden="true" id="icon" (click)="searchBar(searchInput)" ></i>
         <input type="text" placeholder="Type here to search" class="search-bar" #searchInput (click)="searchBar(searchInput)"/>
     </div>
-    <div class="menu-container" *ngIf="isMenuOpen">
+    <div class="menu-container" *ngIf="isMenuOpen" @openClose>
         <app-start-menu></app-start-menu>
     </div>
 </div>
