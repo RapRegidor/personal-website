@@ -7,5 +7,13 @@
     <div class="menu-container" *ngIf="isMenuOpen" @openClose>
         <app-start-menu></app-start-menu>
     </div>
+    <div id="time">
+        <p>{{currentDate | date:'h:mm a'}}</p>
+        <p>{{currentDate | date:'M/d/yyyy'}}</p>
+    </div>
+    <div id="weather">
+        <!-- ADD GEOLOCATION API -> work for weather and current date/time -> default is new york -->
+        <!-- ADD WEATHER API -> icon (based on status), degree, and status (cloudy, sunny, etc.)-->
+    </div>
 </div>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnDestroy } from '@angular/core';
 import { StartMenuComponent } from "../start-menu/start-menu.component";
 import { CommonModule } from '@angular/common';
 import {trigger, transition, state, animate, style} from '@angular/animations';
@@ -21,7 +21,8 @@ import {trigger, transition, state, animate, style} from '@angular/animations';
     ])
   ],
 })
-export class TaskbarComponent {
+export class TaskbarComponent implements OnDestroy{
+
   isMenuOpen = false;
   searchBar(searchInput: HTMLInputElement) {
     searchInput.focus();
@@ -30,5 +31,24 @@ export class TaskbarComponent {
   
   toggleMenu(){
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  currentDate: number = Date.now(); 
+  private intervalId!: ReturnType<typeof setInterval>;
+  constructor(private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
+  ngAfterViewInit(): void {
+    this.ngZone.runOutsideAngular(() => {
+      this.intervalId = setInterval(() => {
+        this.ngZone.run(() => {
+          this.currentDate = Date.now();
+          this.cdr.detectChanges(); 
+        });
+      }, 1000);
+    });
+  }
+  ngOnDestroy() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
   }
 }

@@ -1,7 +1,7 @@
 .container{
-    background-image: url(/cat.png);
+    background-image: url(/windows-image.png);
     background-repeat:no-repeat;
-    background-size:50%;
+    background-size:cover;
     background-position: center;
     background-color: rgb(213, 210, 204);
     
@@ -12,7 +12,7 @@
     align-items: flex-start;
     position:relative;
 }
-img{
+.files{
     margin:0px;
     padding:0px;
     width: 100px;
@@ -30,6 +30,13 @@ figcaption {
     font-family: 'MedievalSharp', cursive;
 }
 figure:hover{
-    background-color: rgba(51, 116, 194, 0.2);
+    background-color: rgba(29, 103, 194, 0.589);
+}
+#logo{
+    position:absolute;
+    height:60%;
+    width: 80%;
+    margin-left:10%;
+    margin-top:10%;
 }
 
