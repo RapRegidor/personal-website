@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { StartMenuComponent } from "../start-menu/start-menu.component";
 
 @Component({
   selector: 'app-main-window',
-  imports: [StartMenuComponent],
+  imports: [],
   templateUrl: './main-window.component.html',
   styleUrl: './main-window.component.css'
 })

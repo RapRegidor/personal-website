@@ -45,7 +45,8 @@
     width:400px;
     height:60%;
     background-color: rgb(45, 43, 43);
-    
+    position: absolute;
+    bottom: 52px;
     box-shadow: 0px 1px 5px black;
 }
 
