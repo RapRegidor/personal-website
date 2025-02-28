@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, NgZone, OnDestroy } from '@angular/core';
 import { StartMenuComponent } from "../start-menu/start-menu.component";
 import { CommonModule } from '@angular/common';
-import {trigger, transition, state, animate, style} from '@angular/animations';
+import {trigger, transition, animate, style} from '@angular/animations';
 
 @Component({
   selector: 'app-taskbar',

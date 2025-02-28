@@ -3,8 +3,11 @@
     <div id="power-column">
         <img src="/cat.png" id="logo">
          <p id="name">Rap Regidor</p>
-        <button id="power-button">
+        <button id="power-button" (click)="toggleOptions()">
             <i class="fa-solid fa-power-off" id="power-icon"></i>
         </button>
+        <div class="options-container" *ngIf="isOptionsOpen" @openClose>
+            <button id="close" (click)="closeWindow()">Close Website</button>
+        </div>
     </div>
 </div>

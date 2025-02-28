@@ -1,5 +1,5 @@
 .container{
-    background-image: url(/windows-image.png);
+    background-image: url(/background.png);
     background-repeat:no-repeat;
     background-size:cover;
     background-position: center;
@@ -9,8 +9,10 @@
     display: flex;
     height:100%;
 
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     position:relative;
+    user-select: none;
 }
 .files{
     margin:0px;
@@ -23,20 +25,24 @@
 figure{
     text-align: center;
     margin: 10px;
+    margin-top:200px;
+    
 }
 figcaption {
     cursor: default;
-    text-shadow: 0px 1px 2px black; 
+    color:white;
+    text-shadow: 0px 7px 5px black; 
     font-family: 'MedievalSharp', cursive;
 }
 figure:hover{
-    background-color: rgba(29, 103, 194, 0.589);
+    background-color: rgba(29, 103, 194, 0.403);
 }
 #logo{
-    position:absolute;
-    height:60%;
-    width: 80%;
-    margin-left:10%;
-    margin-top:10%;
+    position:fixed;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
