@@ -11,7 +11,7 @@
         <img src="/contactsFile.png" alt="About Me File" class="files" (click)="openFile('contacts')">
         <figcaption>Contacts</figcaption>
     </figure>
-    <div cdkDrag class="file" id="about-me-file" *ngIf="fileService.isAboutMeOpen$ | async">
+    <div cdkDrag class="file" id="about-me-file" *ngIf="fileService.isAboutMeOpen$ | async" (mousedown)="changeCurrentFile('aboutMe')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('aboutMe') ?? 1}">
         <div class="top-bar">
             <p class="title">About Me</p>
             <button class="close-file" (click)="closeFile('aboutMe')"><i class="fa-solid fa-x"></i></button>
@@ -21,23 +21,23 @@
         </div>
     </div>
 
-    <div cdkDrag class="file" id="projects-file" *ngIf="fileService.isProjectsOpen$ | async">
+    <div cdkDrag class="file" id="projects-file" *ngIf="fileService.isProjectsOpen$ | async" (mousedown)="changeCurrentFile('projects')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('projects') ?? 1}">
         <div class="top-bar">
             <p class="title">Projects</p>
             <button class="close-file" (click)="closeFile('projects')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="projects-container">
-            <app-about-me-window></app-about-me-window>
+            <app-projects-window></app-projects-window>
         </div>
     </div>
 
-    <div cdkDrag class="file" id="contacts-file" *ngIf="fileService.isContactsOpen$ | async">
+    <div cdkDrag class="file" id="contacts-file" *ngIf="fileService.isContactsOpen$ | async" (mousedown)="changeCurrentFile('contacts')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('contacts') ?? 1}">
         <div class="top-bar">
             <p class="title">Contacts</p>
             <button class="close-file" (click)="closeFile('contacts')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="contacts-container">
-            <app-about-me-window></app-about-me-window>
+            <app-contacts-window></app-contacts-window>
         </div>
     </div>
 </div> 

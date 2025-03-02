@@ -13,17 +13,20 @@ export class OpeningFilesService {
   private contacts = new BehaviorSubject<boolean>(false);
   private opened = new BehaviorSubject<string[]>([]);
   private current = new BehaviorSubject<string>("");
+  private stack = new BehaviorSubject<string[]>([]);
   //stream - 
   isAboutMeOpen$ = this.aboutMe.asObservable();
   isProjectsOpen$ = this.projects.asObservable();
   isContactsOpen$ = this.contacts.asObservable();
   openedFiles$ = this.opened.asObservable();
   currentFile$ = this.current.asObservable();
+  currentStack$ = this.stack.asObservable();
 
   openFile(file: string){
     const currentFiles = this.opened.value;
     if(!currentFiles.includes(file)){
       this.opened.next([...currentFiles, file]);
+      this.stack.next(this.opened.value);
     }
     if(file === "aboutMe"){
       this.aboutMe.next(true);
@@ -58,5 +61,8 @@ export class OpeningFilesService {
   }
   changeCurrentFile(file: string){
     this.current.next(file);
+    const currentFiles = this.stack.value.filter(keepFile => keepFile !== file);
+    const updatedFiles = [...currentFiles, file];
+    this.stack.next(updatedFiles);
   }
 }
