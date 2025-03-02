@@ -48,7 +48,6 @@
     width:400px;
     height:60%;
     background-color: rgba(9, 57, 67, 0.888);
-    position: absolute;
     bottom: 53px;
     box-shadow: 0px 1px 5px black;
     backdrop-filter: blur(10px);
@@ -71,3 +70,106 @@
     padding:0px;
     margin:0px;
 }
+
+#weather-icon{
+    font-size:24px;
+}
+
+#weather-properties{
+    display: flex;
+    flex-direction: column;
+    height:100%;
+    justify-content: space-evenly;
+    font-size:12px;
+    color:white;
+    font-family: 'MedievalSharp', cursive;
+    align-items: flex-start;
+    padding-right: 5px; 
+    cursor: default;
+}
+
+#weather-properties p{
+    padding:0px;
+    padding-left: 10px;
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+#weather-forecast{
+    display:flex;
+    flex-direction: row;
+    height:100%;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#weather{
+    display: flex;
+    align-items: center;
+    width:150px;
+}
+
+.taskbar-opened-files{
+    height:50px;
+    flex-grow: 1;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.file-containers{
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    width:100%;
+}
+
+.file-icons{
+    height:50px;
+    margin-top: -5px;
+}
+
+.file-buttons{
+    height:100%;
+    background-color:transparent;
+    border:none;
+    align-items: center;
+    justify-content: center;
+    padding:0px;
+    margin-right:2px;
+}
+
+.file-buttons:hover{
+    background-color: rgba(200, 199, 199, 0.259);
+}
+
+.active-file{
+    background-color: rgba(200, 199, 199, 0.389);
+}
+
+.active-file:hover{
+    background-color: rgba(200, 199, 199, 0.522);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-preview {
+    background-color: rgba(200, 199, 199, 0.133);
+}
+
+.file-containers.cdk-drop-list-dragging .file-buttons:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.file-containers.cdk-drop-list-dragging :not(.active-file):hover{
+    background-color:transparent !important;
+}
+
+.file-containers.cdk-drop-list-dragging .active-file:hover {
+    background-color: rgba(200, 199, 199, 0.389) !important;
+}
+
+  

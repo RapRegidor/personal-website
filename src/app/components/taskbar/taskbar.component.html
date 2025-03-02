@@ -2,18 +2,33 @@
     <button class="windows-button"><font face=Wingdings id="windows-icon" (click)="toggleMenu()">&#xff;</font></button>
     <div class="search-container">
         <i class="fa fa-search" aria-hidden="true" id="icon" (click)="searchBar(searchInput)" ></i>
-        <input type="text" placeholder="Type here to search" class="search-bar" #searchInput (click)="searchBar(searchInput)"/>
+        <input id="search-file" type="text" placeholder="Type here to search" class="search-bar" #searchInput (click)="searchBar(searchInput)"/>
     </div>
     <div class="menu-container" *ngIf="isMenuOpen" @openClose>
         <app-start-menu></app-start-menu>
     </div>
+
+    <div class="taskbar-opened-files">
+        <div class="file-containers" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+            <button class="file-buttons"  *ngFor="let file of fileService.openedFiles$ | async" [ngClass]="{ 'active-file': (fileService.currentFile$ | async) === file }" (click)="fileService.changeCurrentFile(file)" cdkDrag  cdkDragLockAxis="x" cdkDragBoundary=".file-containers" @openCloseFile>
+                <img [src]="getIcon(file)" class="file-icons">
+            </button>
+        </div>
+    </div>
+
     <div id="time">
         <p>{{currentDate | date:'h:mm a'}}</p>
         <p>{{currentDate | date:'M/d/yyyy'}}</p>
     </div>
     <div id="weather">
-        <!-- ADD GEOLOCATION API -> work for weather and current date/time -> default is new york -->
-        <!-- ADD WEATHER API -> icon (based on status), degree, and status (cloudy, sunny, etc.)-->
+         <div *ngIf="forecast" id="weather-forecast">
+            <i class="fa" [ngClass]="weatherIcon" [ngStyle]="weatherColor" id="weather-icon"></i>
+            <div id="weather-properties" title="Weather updates every 12 hours from weather.gov">
+                <p>{{forecast.periods[0].shortForecast}}</p>
+                <p>{{forecast.periods[0].temperature}}°{{forecast.periods[0].temperatureUnit}}</p>
+            </div>
+        </div>
     </div>
+    
 </div>
 

@@ -1,15 +1,70 @@
 <div class="container">
     <figure>
-        <img src="/aboutMeFile.png" alt="About Me File" class="files">
+        <img src="/aboutMeFile.png" alt="About Me File" class="files" (click)="openFile('aboutMe')">
         <figcaption>About Me</figcaption>
     </figure>
     <figure>
-        <img src="/projectsFile.png" alt="Projects File" class="files">
+        <img src="/projectsFile.png" alt="Projects File" class="files" (click)="openFile('projects')">
         <figcaption>Projects</figcaption>
     </figure>
     <figure>
-        <img src="/contactsFile.png" alt="About Me File" class="files">
+        <img src="/contactsFile.png" alt="About Me File" class="files" (click)="openFile('contacts')">
         <figcaption>Contacts</figcaption>
     </figure>
-    <!-- <img src="/cat.png" id="logo"> -->
+    <div cdkDrag class="file" id="about-me-file" *ngIf="fileService.isAboutMeOpen$ | async">
+        <div class="top-bar">
+            <p class="title">About Me</p>
+            <button class="close-file" (click)="closeFile('aboutMe')"><i class="fa-solid fa-x"></i></button>
+        </div>
+        <div class="content" id="about-me-content">
+            <div id="banner">
+                
+                <div class="banner-components" id="image-container">
+                    <img src="/myphoto.png" id="my-photo">
+                </div>
+                <div class="banner-components" id="text-container">
+                    <p id="name">Rap Regidor<p>
+                    <p id="description">Currently a Junior in Stony Brook University majoring in Computer Science</p>
+                </div>
+            </div>
+
+            <div id="detailed-description">
+                <p id="about-me-title">About Me.</p>
+                <p class="story">My journey to Computer Science started in high school when I had a mandatory programming class. In this class, I didn’t write with an actual programming language yet; instead, I played with blocks. All I had to do was build upon those blocks by attaching them to each other to create a program. It was like legos to me-- fun and creative. I had the freedom to make whatever I wanted, and that’s what I love about programming.</p>
+                <p class="story">I then took more classes related to programming. My passion for coding really took off when I was given yet another chance of freedom to make whatever I wanted for my final project. I built my own game, and I was really proud of myself in the end. Throughout that process, I was learning more than I needed, improving my project beyond of what was taught in the curriculum, and was genuinely satisfied seeing the result. This very experience helped me decide to pursue Computer Science in college.</p>
+                <p class="story">Now, I continue to explore new areas of coding, whether it's learning frontend, backend, cybersecurity or anything else that piques my interest. I will continue my journey to grow and improve my skills even further.</p>
+            </div>
+
+            <div id="experience-container">
+                <div id="list">
+                    <p class="resume">Education</p>
+                    <div class="resume-container" id="stony-container">
+                        <img src="/stony.jpg" class="experience-images">
+                        <ul>
+                            <li class="experience-title"><strong>Stony Brook University</strong>, Stony Brook, NY</li>
+                            <li class="experience-title"><strong>Computer Science</strong></li>
+                            <li class="experience-title"><strong>GPA: 3.5</strong></li>
+                        </ul>
+                    </div>
+                    <p class="resume">Experience</p>
+                    <div class="resume-container" id="pa-container">
+                        <img src="/pa.png" class="experience-images">
+                        <ul>
+                            <li class="experience-title"><strong>The Knowledge House</strong>, <strong>KKCF Coding Fellow</strong>, Bronx, NY</li>
+                            <li class="experience-details">Leveraged technical skills to create a personal blog during an intensive summer fellowship with <strong>100+ hours of technology and professional development training</strong>.</li>
+                            <li class="experience-details"><strong>Collaborated daily with staff and 30+ fellows</strong> and engaged in <strong>weekly networking and skills training with industry professionals, including senior executives</strong>.</li>
+                        </ul>
+                    </div>
+                    <div class="resume-container" id="tkh-container">
+                        <img src="/tkh.png" class="experience-images">
+                        <ul>
+                            <li class="experience-title"><strong>Project Alpaca</strong>, <strong>Alpaca (Mentee)</strong>, Manhattan, NY</li>
+                            <li class="experience-details">Completed a <strong>9-month career development program</strong> focused on <strong>mentorship and professional development</strong>, preparing mentees to break into the tech industry.</li>
+                            <li class="experience-details"><strong>Delivered an impactful in-person presentation</strong> with 3 other mentees of our design and a <strong>functioning mobile application</strong> to tech professionals and funders.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div> 
