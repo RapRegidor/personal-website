@@ -64,6 +64,14 @@ figure:hover{
     height:calc(100% - 35px);
     width: 100%;
 }
+#contacts-container{
+    height:calc(100% - 35px);
+    width: 100%;
+}
+#projects-container{
+    height:calc(100% - 35px);
+    width: 100%;
+}
 
 .close-file{
     background-color: transparent;
