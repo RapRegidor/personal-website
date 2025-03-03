@@ -23,6 +23,9 @@ export class MainWindowComponent {
   changeCurrentFile(file: string){
     this.fileService.changeCurrentFile(file);
   }
+  minimizeTab(file: string){
+    this.fileService.closeFile(file, 1);
+  }
   //get the window element width and height
   //put a threshold based on cursor
   //get preview of the snapping

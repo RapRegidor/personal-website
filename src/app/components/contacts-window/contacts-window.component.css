@@ -4,5 +4,17 @@
     background-color: #EAE0D5;
     overflow: auto;
     display: flex;
+    flex-direction: row;
+}
+
+#form-container{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form{
+    display: flex;
     flex-direction: column;
 }

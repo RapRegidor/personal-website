@@ -39,9 +39,13 @@ export class OpeningFilesService {
     }
     this.current.next(file);
   }
-  closeFile(file: string){
-    const currentFiles = this.opened.value.filter(keepFile => keepFile !== file);
-    this.opened.next(currentFiles);
+  closeFile(file: string, optionalParam?: number){
+    if(optionalParam != 1){
+      console.log("HI!");
+      const currentFiles = this.opened.value.filter(keepFile => keepFile !== file);
+      this.opened.next(currentFiles);
+    }
+
     if(file === "aboutMe"){
       this.aboutMe.next(false);
     }
@@ -59,7 +63,17 @@ export class OpeningFilesService {
     moveItemInArray(updatedFiles, event.previousIndex, event.currentIndex);
     this.opened.next(updatedFiles);
   }
-  changeCurrentFile(file: string){
+  changeCurrentFile(file: string, optionalParam?: number){
+    if(file === "aboutMe" && this.aboutMe.getValue() == false){
+      this.aboutMe.next(true);
+    }
+    if(file === "projects"  && this.projects.getValue() == false){
+      this.projects.next(true);
+    }
+    if(file === "contacts"  && this.contacts.getValue() == false){
+      this.contacts.next(true);
+    }
+    
     this.current.next(file);
     const currentFiles = this.stack.value.filter(keepFile => keepFile !== file);
     const updatedFiles = [...currentFiles, file];

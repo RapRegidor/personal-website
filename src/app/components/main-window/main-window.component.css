@@ -52,7 +52,7 @@ figure:hover{
 .top-bar{
     width: 100%;
     height:35px;
-    background-color: rgb(243, 178, 178);
+    background-color: rgb(245, 137, 97);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -71,6 +71,19 @@ figure:hover{
 #projects-container{
     height:calc(100% - 35px);
     width: 100%;
+}
+
+.minimize-file{
+    background-color: transparent;
+    height: 35px;
+    width: 35px;
+    border:none;
+    margin-right:2px;
+}
+
+.minimize-file:hover{
+    background-color: rgb(208, 192, 192);
+    
 }
 
 .close-file{

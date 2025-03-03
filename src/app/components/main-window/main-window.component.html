@@ -12,8 +12,9 @@
         <figcaption>Contacts</figcaption>
     </figure>
     <div cdkDrag class="file" id="about-me-file" *ngIf="fileService.isAboutMeOpen$ | async" (mousedown)="changeCurrentFile('aboutMe')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('aboutMe') ?? 1}">
-        <div class="top-bar">
+        <div cdkDragHandle class="top-bar">
             <p class="title">About Me</p>
+            <button class="minimize-file" (click)="minimizeTab('aboutMe')"><i class="fa-solid fa-minus"></i></button>
             <button class="close-file" (click)="closeFile('aboutMe')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="about-me-container">
@@ -22,8 +23,9 @@
     </div>
 
     <div cdkDrag class="file" id="projects-file" *ngIf="fileService.isProjectsOpen$ | async" (mousedown)="changeCurrentFile('projects')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('projects') ?? 1}">
-        <div class="top-bar">
+        <div cdkDragHandle class="top-bar">
             <p class="title">Projects</p>
+            <button class="minimize-file" (click)="minimizeTab('projects')"><i class="fa-solid fa-minus"></i></button>
             <button class="close-file" (click)="closeFile('projects')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="projects-container">
@@ -32,8 +34,9 @@
     </div>
 
     <div cdkDrag class="file" id="contacts-file" *ngIf="fileService.isContactsOpen$ | async" (mousedown)="changeCurrentFile('contacts')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('contacts') ?? 1}">
-        <div class="top-bar">
+        <div cdkDragHandle class="top-bar">
             <p class="title">Contacts</p>
+            <button class="minimize-file" (click)="minimizeTab('contacts')"><i class="fa-solid fa-minus"></i></button>
             <button class="close-file" (click)="closeFile('contacts')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="contacts-container">
