@@ -1,6 +1,37 @@
 <div class="container">
-    <div id="files">
-        
+    <div id="files-container">
+        <div id="blocks-container">
+            <div id="files-block" (click)="openFile('aboutMe')">
+                <figure class="files">
+                    <img src="/aboutMeFile.png" alt="About Me File">
+                    <figcaption>About Me</figcaption>
+                </figure>
+                <figure (click)="openFile('projects')" class="files">
+                    <img src="/projectsFile.png" alt="Projects File">
+                    <figcaption>Projects</figcaption>
+                </figure>
+                <figure (click)="openFile('contacts')" class="files">
+                    <img src="/contactsFile.png" alt="About Me File">
+                    <figcaption>Contacts</figcaption>
+                </figure>
+            </div>
+            <div class="block">
+                <!-- Login first! -->
+                <h1>SPOTIFY</h1>
+            </div>
+            <div id="squares" class="block">
+                <div class="square-block">
+                    <h1>PAINT</h1>
+                </div>
+                <div class="square-block">
+                    <h1>SWEEPER</h1>
+                </div>
+            </div>
+            <div class="block">
+                <!-- might jsut do a slideshow of what the user created and only appears if there already -->
+                <h1>IDK YET</h1>
+            </div>
+        </div>
     </div>
     <div id="power-column">
         <img src="/cat.png" id="logo">

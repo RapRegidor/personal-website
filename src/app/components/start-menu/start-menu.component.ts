@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {trigger, transition, animate, style} from '@angular/animations';
+import { OpeningFilesService } from '../../services/opening-files.service';
 
 @Component({
   selector: 'app-start-menu',
@@ -22,12 +23,16 @@ import {trigger, transition, animate, style} from '@angular/animations';
 })
 export class StartMenuComponent {
   isOptionsOpen = false;
-  
+  constructor(public fileService: OpeningFilesService){}
   toggleOptions(){
     this.isOptionsOpen = !this.isOptionsOpen;
   }
   closeWindow(){
     window.open('', '_self')?.close();
     alert("Sad that browsers restrict self-closing. Close the tab manually (pretend it closed itself please).");
+  }
+  
+  openFile(file: string){
+    this.fileService.openFile(file);
   }
 }
