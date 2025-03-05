@@ -3,13 +3,13 @@
     </div>
     <div id="form-container">
         <form id="form" #emailForm="ngForm" (ngSubmit)="sendEmail(emailForm)">
-            <input type="text" placeholder="Name" name="name" ngModel required minlength="3">
+            <input class="form-elements" type="text" placeholder="Name" name="name" ngModel required minlength="3">
 
-            <input type="email" placeholder="Email" name="email" ngModel required>
+            <input class="form-elements" type="email" placeholder="Email" name="email" ngModel required>
 
-            <textarea placeholder="Message" name="message" ngModel required minlength="3" maxlength="500"></textarea>
+            <textarea class="form-elements" placeholder="Message" name="message" ngModel required minlength="3" maxlength="500"></textarea>
 
-            <button type="submit" [disabled]="emailForm.invalid">Send</button>
+            <button class="form-elements" type="submit" [disabled]="emailForm.invalid">Send</button>
         </form>
     </div>
 </div>
