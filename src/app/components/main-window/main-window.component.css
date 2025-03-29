@@ -85,7 +85,7 @@ figure:hover{
     width: 100%;
 }
 
-.minimize-file{
+.minimize-file, .resize-file{
     background-color: transparent;
     height: 35px;
     width: 35px;
@@ -93,9 +93,8 @@ figure:hover{
     margin-right:2px;
 }
 
-.minimize-file:hover{
-    background-color: rgb(208, 192, 192);
-    
+.minimize-file:hover, .resize-file:hover{
+    background-color: rgba(208, 192, 192, 0.582);
 }
 
 .close-file{

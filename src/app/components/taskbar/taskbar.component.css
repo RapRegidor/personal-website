@@ -141,10 +141,12 @@
     justify-content: center;
     padding:0px;
     margin-right:2px;
+    position: relative;
 }
 
 .file-buttons:hover{
     background-color: rgba(200, 199, 199, 0.259);
+    
 }
 
 .active-file{
@@ -175,4 +177,20 @@
     background-color: rgba(200, 199, 199, 0.389) !important;
 }
 
-  
+#colorBlock {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    z-index: 2;
+    background-color: rgba(36, 253, 253, 0.782);
+    transition: width 0.3s ease;
+    width: 80%;
+}
+.color-full {
+    width: 100% !important;
+}
+.file-buttons:hover #colorBlock {
+    width: 100%;
+}

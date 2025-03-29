@@ -4,6 +4,10 @@
             <img src="/aboutMeFile.png" alt="About Me File" class="files">
             <figcaption>About Me</figcaption>
         </figure>
+        <figure (click)="openFile('resume'); changeCurrentFile('resume')">
+            <img src="/resumeFile.png" alt="Resume File" class="files">
+            <figcaption>Resume</figcaption>
+        </figure>
         <figure (click)="openFile('projects'); changeCurrentFile('projects')">
             <img src="/projectsFile.png" alt="Projects File" class="files">
             <figcaption>Projects</figcaption>
@@ -17,6 +21,8 @@
         <div cdkDragHandle class="top-bar">
             <p class="title">About Me</p>
             <button class="minimize-file" (click)="minimizeTab('aboutMe')"><i class="fa-solid fa-minus"></i></button>
+            <button class="resize-file" (click)="minimizeTab('aboutMe')"><i class="fa-solid fa-window-maximize"></i></button>
+            <!-- <i class="fa-solid fa-window-restore"></i> -->
             <button class="close-file" (click)="closeFile('aboutMe')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="about-me-container">
@@ -28,6 +34,7 @@
         <div cdkDragHandle class="top-bar">
             <p class="title">Projects</p>
             <button class="minimize-file" (click)="minimizeTab('projects')"><i class="fa-solid fa-minus"></i></button>
+            <!-- <button class="resize-file" (click)="minimizeTab('projects')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
             <button class="close-file" (click)="closeFile('projects')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="projects-container">
@@ -39,6 +46,7 @@
         <div cdkDragHandle class="top-bar">
             <p class="title">Contacts</p>
             <button class="minimize-file" (click)="minimizeTab('contacts')"><i class="fa-solid fa-minus"></i></button>
+            <!-- <button class="resize-file" (click)="minimizeTab('contacts')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
             <button class="close-file" (click)="closeFile('contacts')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="contacts-container">
@@ -50,6 +58,7 @@
         <div cdkDragHandle class="top-bar">
             <p class="title">Resume</p>
             <button class="minimize-file" (click)="minimizeTab('resume')"><i class="fa-solid fa-minus"></i></button>
+            <!-- <button class="resize-file" (click)="minimizeTab('resume')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
             <button class="close-file" (click)="closeFile('resume')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="resume-container">

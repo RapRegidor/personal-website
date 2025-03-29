@@ -35,4 +35,7 @@ export class StartMenuComponent {
   openFile(file: string){
     this.fileService.openFile(file);
   }
+  changeCurrentFile(file: string){
+    this.fileService.changeCurrentFile(file);
+  }
 }

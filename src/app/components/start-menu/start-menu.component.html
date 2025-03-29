@@ -1,16 +1,20 @@
 <div class="container">
     <div id="files-container">
         <div id="blocks-container">
-            <div id="files-block" (click)="openFile('aboutMe')">
-                <figure class="files">
+            <div id="files-block" >
+                <figure (click)="openFile('aboutMe'); changeCurrentFile('aboutMe')" class="files">
                     <img src="/aboutMeFile.png" alt="About Me File">
                     <figcaption>About Me</figcaption>
                 </figure>
-                <figure (click)="openFile('projects')" class="files">
+                <figure (click)="openFile('resume'); changeCurrentFile('resume')" class="files">
+                    <img src="/resumeFile.png" alt="Resume File">
+                    <figcaption>Resume</figcaption>
+                </figure>
+                <figure (click)="openFile('projects'); changeCurrentFile('projects')" class="files">
                     <img src="/projectsFile.png" alt="Projects File">
                     <figcaption>Projects</figcaption>
                 </figure>
-                <figure (click)="openFile('contacts')" class="files">
+                <figure (click)="openFile('contacts'); changeCurrentFile('contacts')" class="files">
                     <img src="/contactsFile.png" alt="About Me File">
                     <figcaption>Contacts</figcaption>
                 </figure>
