@@ -5,10 +5,12 @@ import { OpeningFilesService } from '../../services/opening-files.service';
 import { AboutMeWindowComponent } from "../about-me-window/about-me-window.component";
 import { ProjectsWindowComponent } from "../projects-window/projects-window.component";
 import { ContactsWindowComponent } from "../contacts-window/contacts-window.component";
+import { ResumeWindowComponent } from "../resume-window/resume-window.component";
+
 
 @Component({
   selector: 'app-main-window',
-  imports: [DragDropModule, CommonModule, AboutMeWindowComponent, ProjectsWindowComponent, ContactsWindowComponent],
+  imports: [DragDropModule, CommonModule, AboutMeWindowComponent, ProjectsWindowComponent, ContactsWindowComponent, ResumeWindowComponent],
   templateUrl: './main-window.component.html',
   styleUrl: './main-window.component.css',
 })

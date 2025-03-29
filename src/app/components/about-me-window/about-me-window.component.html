@@ -18,8 +18,10 @@
     </div>
 
     <div id="experience-container">
+        <button id="resume-link" (click)="$event.stopPropagation(); openFile('resume'); changeCurrentFile('resume')"><i class="fa-solid fa-file"></i><span>View Full Resume</span></button>
         <div id="list">
             <p class="resume">Education</p>
+
             <div class="resume-container" id="stony-container">
                 <img src="/stony.jpg" class="experience-images">
                 <ul>
@@ -47,3 +49,4 @@
             </div>
         </div>
     </div>
+</div>

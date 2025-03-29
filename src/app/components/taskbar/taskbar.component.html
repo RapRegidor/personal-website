@@ -10,7 +10,7 @@
 
     <div class="taskbar-opened-files">
         <div class="file-containers" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
-            <button class="file-buttons"  *ngFor="let file of fileService.openedFiles$ | async" [ngClass]="{ 'active-file': (fileService.currentFile$ | async) === file }" (click)="fileService.changeCurrentFile(file)" cdkDrag  cdkDragLockAxis="x" cdkDragBoundary=".file-containers" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf(file) ?? 1}" @openCloseFile>
+            <button class="file-buttons"  *ngFor="let file of fileService.openedFiles$ | async" [ngClass]="{ 'active-file': (fileService.currentFile$ | async) === file }" (click)="fileService.changeCurrentFile(file)" cdkDrag  cdkDragLockAxis="x" cdkDragBoundary=".file-containers"  @openCloseFile>
                 <img [src]="getIcon(file)" class="file-icons">
             </button>
         </div>
@@ -23,8 +23,8 @@
     <div id="weather">
          <div *ngIf="forecast" id="weather-forecast">
             <i class="fa" [ngClass]="weatherIcon" [ngStyle]="weatherColor" id="weather-icon"></i>
-            <div id="weather-properties" title="Weather updates every 12 hours from weather.gov">
-                <p>{{forecast.periods[0].shortForecast}}</p>
+            <div id="weather-properties" title="{{forecast.periods[0].shortForecast.length > 25 ? forecast.periods[0].shortForecast + '\n' : ''}}Weather updates every 12 hours from weather.gov">
+                <p>{{forecast.periods[0].shortForecast | slice:0:25 }}{{forecast.periods[0].shortForecast.length > 25 ? '...' : '' }}</p>
                 <p>{{forecast.periods[0].temperature}}°{{forecast.periods[0].temperatureUnit}}</p>
             </div>
         </div>

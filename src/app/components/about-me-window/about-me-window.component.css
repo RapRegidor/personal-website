@@ -137,3 +137,28 @@ li{
 strong{
     font-weight:900;
 }
+
+#experience-container{
+    position:relative;
+}
+#resume-link{
+    margin:0px;
+    top:20px;
+    right:20px;
+    position:absolute;
+    font-weight: bold;
+    color:rgb(47, 47, 243);
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+#resume-link span{
+    text-decoration: underline;
+}
+#resume-link i {
+    margin-right: 5px;
+}
+#resume-link:hover {
+    color: darkblue;
+    text-decoration: underline;
+}

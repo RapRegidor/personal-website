@@ -11,6 +11,7 @@ export class OpeningFilesService {
   private aboutMe = new BehaviorSubject<boolean>(false);
   private projects = new BehaviorSubject<boolean>(false);
   private contacts = new BehaviorSubject<boolean>(false);
+  private resume = new BehaviorSubject<boolean>(false);
   private opened = new BehaviorSubject<string[]>([]);
   private current = new BehaviorSubject<string>("");
   private stack = new BehaviorSubject<string[]>([]);
@@ -18,11 +19,13 @@ export class OpeningFilesService {
   isAboutMeOpen$ = this.aboutMe.asObservable();
   isProjectsOpen$ = this.projects.asObservable();
   isContactsOpen$ = this.contacts.asObservable();
+  isResumeOpen$ = this.resume.asObservable();
   openedFiles$ = this.opened.asObservable();
   currentFile$ = this.current.asObservable();
   currentStack$ = this.stack.asObservable();
 
   openFile(file: string){
+    
     const currentFiles = this.opened.value;
     if(!currentFiles.includes(file)){
       this.opened.next([...currentFiles, file]);
@@ -37,13 +40,23 @@ export class OpeningFilesService {
     if(file === "contacts"){
       this.contacts.next(true);
     }
+    if(file === "resume"){
+      this.resume.next(true);
+    }
     this.current.next(file);
   }
   closeFile(file: string, optionalParam?: number){
+    
     if(optionalParam != 1){
-      console.log("HI!");
-      const currentFiles = this.opened.value.filter(keepFile => keepFile !== file);
+      const currentFiles = this.opened.value.filter(keepFile => keepFile !== file);//actually opened (minimized included)
       this.opened.next(currentFiles);
+      const currentStackFiles = this.stack.value.filter(keepFile => keepFile !== file);//files on display
+      this.stack.next(currentStackFiles);
+      this.current.next(this.stack.getValue()[this.stack.getValue().length - 1]);
+    }else{
+      const currentFiles = this.stack.value.filter(keepFile => keepFile !== file);
+      this.stack.next(currentFiles);
+      this.current.next(currentFiles[currentFiles.length - 1]);
     }
 
     if(file === "aboutMe"){
@@ -55,7 +68,10 @@ export class OpeningFilesService {
     if(file === "contacts"){
       this.contacts.next(false);
     }
-    this.current.next("");
+    if(file === "resume"){
+      this.resume.next(false);
+    }
+    
   }
   
   drop(event: CdkDragDrop<string[]>) {
@@ -63,7 +79,8 @@ export class OpeningFilesService {
     moveItemInArray(updatedFiles, event.previousIndex, event.currentIndex);
     this.opened.next(updatedFiles);
   }
-  changeCurrentFile(file: string, optionalParam?: number){
+  
+  changeCurrentFile(file: string){
     if(file === "aboutMe" && this.aboutMe.getValue() == false){
       this.aboutMe.next(true);
     }
@@ -73,6 +90,9 @@ export class OpeningFilesService {
     if(file === "contacts"  && this.contacts.getValue() == false){
       this.contacts.next(true);
     }
+    if(file === "resume"  && this.resume.getValue() == false){
+      this.resume.next(true);
+    }
     
     this.current.next(file);
     const currentFiles = this.stack.value.filter(keepFile => keepFile !== file);
@@ -80,3 +100,4 @@ export class OpeningFilesService {
     this.stack.next(updatedFiles);
   }
 }
+

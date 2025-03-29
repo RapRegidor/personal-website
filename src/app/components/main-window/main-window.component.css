@@ -22,16 +22,23 @@
     object-fit: cover;
     object-position: center;
 }
-
-figure{
+.icon-bar {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    margin: 10px;
+}
+figure{
+    margin: 5px;
 }
 figcaption {
     cursor: default;
     color:white;
-    text-shadow: 0px 7px 5px black; 
+    text-shadow: 0px 3px 5px black; 
     font-family: 'MedievalSharp', cursive;
+    margin-bottom: 5px;
 }
 figure:hover{
     background-color: rgba(29, 103, 194, 0.403);
@@ -70,6 +77,10 @@ figure:hover{
     width: 100%;
 }
 #projects-container{
+    height:calc(100% - 35px);
+    width: 100%;
+}
+#resume-container{
     height:calc(100% - 35px);
     width: 100%;
 }

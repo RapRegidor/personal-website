@@ -153,6 +153,9 @@ export class TaskbarComponent implements OnDestroy{
     if(file === "contacts"){
       return "/contactsFile.png"
     }
+    if(file === "resume"){
+      return "/resumeFile.png"
+    }
     return;
   }
   drop(event: CdkDragDrop<string[]>){
