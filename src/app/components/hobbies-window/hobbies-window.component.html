@@ -1,0 +1,44 @@
+<div class="content" [ngClass]="{'dark-bar': isDarkMode$ | async}" id="hobbies-content">
+    <div class="nav-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
+        <button class="project-button" id="first" (click)="changeCurrentTab('hobbyOne')">01 Swimming</button>
+        <button class="project-button" id="second" (click)="changeCurrentTab('hobbyTwo')">02 Drawing</button>
+        <button class="project-button" id="third" (click)="changeCurrentTab('hobbyThree')">03 Hiking & Camping</button>
+    </div>
+    <div id="content-container" >
+        <div id="hobby-one" *ngIf="(currentHobbyTab$ | async) === 'hobbyOne'">
+            <div class="video-container">
+                <video class="video" controls>
+                    <source src="/animalReconnectVideo.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="description-container">
+                <p class="name">Swimming</p>
+                <p class="description">A mobile application for direct pet adoption between users. Users can use this to either look for pets or give away their pets. What makes this application different is that it incorporates the swiping mechanism you see in dating apps in order to keep the users' attention. Then, once matched with each other, users can directly communicate with each other via chat.</p>
+            </div>
+        </div>
+
+        <div id="hobby-two" *ngIf="(currentHobbyTab$ | async) === 'hobbyTwo'">
+            <div class="video-container">
+                <video class="video" controls>
+                    <source src="/phredditVideo.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="description-container">
+                <p class="name">Drawing</p>
+                <p class="description">PS. I drew everything here except for some displays such as the weather, magnifying glass, and windows background and icon!</p>
+            </div>
+        </div>
+        
+        <div id="hobby-three" *ngIf="(currentHobbyTab$ | async) === 'hobbyThree'">
+            <div class="video-container">
+                <video class="video" controls>
+                    <source src="/personalBlogVideo.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="description-container">
+                <p class="name">Hiking & Camping</p>
+                <p class="description">This project is the first time I dove into web development. It is my very first personal website showcasing my interests; It is a personal blog.</p>
+            </div>
+        </div>
+    </div>
+</div>

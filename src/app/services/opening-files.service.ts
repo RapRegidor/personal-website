@@ -12,6 +12,7 @@ export class OpeningFilesService {
   private projects = new BehaviorSubject<boolean>(false);
   private contacts = new BehaviorSubject<boolean>(false);
   private resume = new BehaviorSubject<boolean>(false);
+  private hobbies = new BehaviorSubject<boolean>(false);
   private opened = new BehaviorSubject<string[]>([]);
   private current = new BehaviorSubject<string>("");
   private stack = new BehaviorSubject<string[]>([]);
@@ -20,6 +21,7 @@ export class OpeningFilesService {
   isProjectsOpen$ = this.projects.asObservable();
   isContactsOpen$ = this.contacts.asObservable();
   isResumeOpen$ = this.resume.asObservable();
+  isHobbiesOpen$ = this.hobbies.asObservable();
   openedFiles$ = this.opened.asObservable();
   currentFile$ = this.current.asObservable();
   currentStack$ = this.stack.asObservable();
@@ -42,6 +44,9 @@ export class OpeningFilesService {
     }
     if(file === "resume"){
       this.resume.next(true);
+    }
+    if(file === "hobbies"){
+      this.hobbies.next(true);
     }
     this.current.next(file);
   }
@@ -71,6 +76,9 @@ export class OpeningFilesService {
     if(file === "resume"){
       this.resume.next(false);
     }
+    if(file === "hobbies"){
+      this.hobbies.next(false);
+    }
     
   }
   
@@ -92,6 +100,9 @@ export class OpeningFilesService {
     }
     if(file === "resume"  && this.resume.getValue() == false){
       this.resume.next(true);
+    }
+    if(file === "hobbies"  && this.hobbies.getValue() == false){
+      this.hobbies.next(true);
     }
     
     this.current.next(file);

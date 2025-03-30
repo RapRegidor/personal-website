@@ -1,5 +1,5 @@
 <div class="content" id="resume-content">
-    <div id="transparent" *ngIf="(fileService.currentFile$ | async) !== 'resume'"></div>
+    <div id="transparent" *ngIf="(currentFile$ | async) !== 'resume'"></div>
     <embed id="pdf" src="/RapRegidor_Resume.pdf" type="application/pdf" />
 </div>
 

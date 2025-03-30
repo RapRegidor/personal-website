@@ -30,7 +30,6 @@
     text-overflow: ellipsis;
 }
 
-
 #first{
     background-color: #EAE0D5;
 }
@@ -40,12 +39,11 @@
 #third{
     background-color: #e8b57e;
 }
-#fourth{
-    background-color: #e6a865;
-}
-#first:hover, #second:hover, #third:hover, #fourth:hover {
+
+#first:hover, #second:hover, #third:hover {
     background-color: #ff8400;
 }
+
 #content-container{
     display: flex;
     flex-direction: column;
@@ -55,7 +53,7 @@
     
 }
 
-#project-one{
+#hobby-one{
     background-color: #EAE0D5;
     height:100%;
     width:100%;
@@ -66,7 +64,7 @@
     border-radius:0px 0px 10px 10px;
 }
 
-#project-two{
+#hobby-two{
     background-color: #e3c9ad;
     height:100%;
     width:100%;
@@ -77,19 +75,8 @@
     border-radius:0px 0px 10px 10px;
 }
 
-#project-three{
+#hobby-three{
     background-color: #e8b57e;
-    height:100%;
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius:0px 0px 10px 10px;
-}
-
-#project-four{
-    background-color: #e6a865;
     height:100%;
     width:100%;
     display: flex;
@@ -135,14 +122,7 @@
     text-align: justify;
     margin-top: -5px;
 }
-.used{
-    font-family: 'Merriweather', serif;
-    font-size: 16px;
-    line-height: 1.5;
-}
 
 .dark-background{
     background-color:rgb(233, 67, 67);
 }
-
-

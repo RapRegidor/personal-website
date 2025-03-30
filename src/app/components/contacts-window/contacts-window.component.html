@@ -1,15 +1,49 @@
 <div class="content" id="projects-content">
-    <div id="social-links">
-    </div>
+    
     <div id="form-container">
+        
         <form id="form" #emailForm="ngForm" (ngSubmit)="sendEmail(emailForm)">
-            <input class="form-elements" type="text" placeholder="Name" name="name" ngModel required minlength="3">
+            <div id="social-links">
+                <div class="social-container">
+                    <a id="github" href="https://github.com/RapRegidor" target="_blank">
+                        <img src="github-mark.png">
+                    </a>
+                    <p class="description">My GitHub displays personal and collaborative coding projects. It reflects my technical skills, passion for development, and commitment to clean, well-documented, and creative code.</p>
+                    
+                </div>
+                <div class="social-container">
+                    <a id="linkedin" href="https://www.linkedin.com/in/rap-louis-regidor-844785219/" target="_blank">
+                        <img src="InBug-Black.png">
+                    </a>
+                    <p class="description">My LinkedIn shares my professional background, skills, and experience. It highlights my journey, connects me with industry peers, and showcases my growth through posts and achievements.</p>
+                </div>
+            </div>
 
-            <input class="form-elements" type="email" placeholder="Email" name="email" ngModel required>
+            <div id="input1">
+                <input #name="ngModel" class="form-elements required-texts" type="text" placeholder="Name" name="name" ngModel required maxlength="50" >
+                <div *ngIf="name.invalid && name.touched" class="error">
+                    Must type in your name
+                </div>
+                <div class="count" id="name-count">{{name?.value?.length}}/50</div>
+                <div class="asterisk">*</div>
+            </div>
+            <div id="input2">
+                <input #email="ngModel" class="form-elements required-texts" type="email" placeholder="Email" name="email" ngModel email required maxlength="254">
+                <div *ngIf="email.invalid && email.touched" class="error">
+                    Email must be valid
+                </div>
+                <div class="asterisk">*</div>
+            </div>
 
-            <textarea class="form-elements" placeholder="Message" name="message" ngModel required minlength="3" maxlength="500"></textarea>
-
-            <button class="form-elements" type="submit" [disabled]="emailForm.invalid">Send</button>
+            <div id="input3">
+                <textarea  #msg="ngModel" cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="4" class="form-elements required-texts" placeholder="Message" name="message" ngModel required  maxlength="1000" #messageControl="ngModel"></textarea>
+                <div *ngIf="msg.invalid && msg.touched" class="error">
+                    Must type in a message
+                </div>
+                <div class="count">{{ msg?.value?.length || 0 }}/1000</div>
+                <div class="asterisk">*</div>
+            </div>
+            <button class="form-elements" id="button" type="submit" [disabled]="emailForm.invalid">Send</button>
         </form>
     </div>
 </div>

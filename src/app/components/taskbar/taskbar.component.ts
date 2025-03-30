@@ -1,11 +1,12 @@
-import { ChangeDetectorRef, Component, Inject, NgZone, OnDestroy, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { StartMenuComponent } from "../start-menu/start-menu.component";
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {trigger, transition, animate, style} from '@angular/animations';
 import { WeatherService } from '../../api/weather.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 import { OpeningFilesService } from '../../services/opening-files.service';
+import { ToggleModeService } from '../../services/toggle-mode.service';
 
 @Component({
   selector: 'app-taskbar',
@@ -35,31 +36,37 @@ import { OpeningFilesService } from '../../services/opening-files.service';
     ]),
   ],
 })
-export class TaskbarComponent implements OnDestroy{
+export class TaskbarComponent implements OnInit, OnDestroy{
 
   isMenuOpen = false;
   currentDate: number = Date.now(); 
 
-  latitude:number = 40.7128;
-  longtitude:number = -74.0060;
+  private latitude:number = 40.7128;
+  private longtitude:number = -74.0060;
   forecast: any;
   weatherColor: any = { color: "white" };
   weatherIcon: any = { color: "fa-question" };
 
-  weatherSubscription: Subscription | undefined;
+  private weatherSubscription: Subscription | undefined;
+  private openingFileSubscription: Subscription | undefined;
+  currentFile: string | null = null;
 
   private intervalId!: ReturnType<typeof setInterval>;
+  openedFiles$!: Observable<string[]>;
+  currentStack$!: Observable<string[]>;
+  currentFile$!: Observable<string>;
 
-  searchBar(searchInput: HTMLInputElement) {
-    searchInput.focus();
-    this.isMenuOpen = true;
+  constructor(private fileService: OpeningFilesService, private cdr: ChangeDetectorRef, private ngZone: NgZone,  @Inject(PLATFORM_ID) private platformId: Object, private weatherService: WeatherService, private themeService: ToggleModeService) {
+    this.openedFiles$ = this.fileService.openedFiles$;
+    this.currentStack$ = this.fileService.currentStack$;
+    this.currentFile$ = this.fileService.currentFile$;
   }
   
-  toggleMenu(){
-    this.isMenuOpen = !this.isMenuOpen;
+  ngOnInit(): void {
+    this.openingFileSubscription = this.fileService.currentFile$.subscribe(file => {
+      this.currentFile = file;
+    });
   }
-
-  constructor(public fileService: OpeningFilesService, private cdr: ChangeDetectorRef, private ngZone: NgZone,  @Inject(PLATFORM_ID) private platformId: Object, private weatherService: WeatherService) {}
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.getWeather(); 
@@ -73,6 +80,7 @@ export class TaskbarComponent implements OnDestroy{
       }, 1000);
     });
   }
+  
   ngOnDestroy() {
     if (this.intervalId) {
       clearInterval(this.intervalId);
@@ -80,8 +88,32 @@ export class TaskbarComponent implements OnDestroy{
     if(this.weatherSubscription){
       this.weatherSubscription.unsubscribe();
     }
+    if(this.openingFileSubscription){
+      this.openingFileSubscription.unsubscribe();
+    }
   }
 
+  changeDisplay(file: string){
+    return this.themeService.changeDisplay(file);
+  }
+
+  searchBar(searchInput: HTMLInputElement) {
+    searchInput.focus();
+    this.isMenuOpen = true;
+  }
+  
+  toggleMenu(){
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  handleClick(file: string){
+    if(this.currentFile === file){
+      this.fileService.closeFile(file, 1)
+      
+    }else{
+      this.fileService.changeCurrentFile(file);
+    }
+  }
   
   getWeather(){
     this.weatherSubscription = this.weatherService.getForecast(this.latitude, this.longtitude).subscribe({
@@ -155,6 +187,9 @@ export class TaskbarComponent implements OnDestroy{
     }
     if(file === "resume"){
       return "/resumeFile.png"
+    }
+    if(file === "hobbies"){
+      return "/hobbiesFile.png"
     }
     return;
   }

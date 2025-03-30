@@ -1,12 +1,12 @@
-<div class="content" id="projects-content">
-    <div id="nav-bar">
-        <button class="project-button" id="first" (click)="this.fileService.changeCurrentFile('projectOne')">01 Pet Adoption Mobile Application</button>
-        <button class="project-button" id="second" (click)="this.fileService.changeCurrentFile('projectTwo')">02 PHReddit</button>
-        <button class="project-button" id="third" (click)="this.fileService.changeCurrentFile('projectThree')">03 Personal Blog</button>
-        <button class="project-button" id="fourth" (click)="this.fileService.changeCurrentFile('projectFour')">04 Role-Playing Game</button>
+<div class="content" [ngClass]="{'dark-bar': isDarkMode$ | async}" id="projects-content">
+    <div class="nav-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
+        <button class="project-button" id="first" (click)="changeCurrentTab('projectOne')">01 Pet Adoption Mobile Application</button>
+        <button class="project-button" id="second" (click)="changeCurrentTab('projectTwo')">02 PHReddit</button>
+        <button class="project-button" id="third" (click)="changeCurrentTab('projectThree')">03 Personal Blog</button>
+        <button class="project-button" id="fourth" (click)="changeCurrentTab('projectFour')">04 Role-Playing Game</button>
     </div>
     <div id="content-container">
-        <div id="project-one" *ngIf="(fileService.currentFile$ | async) === 'projectOne'">
+        <div id="project-one" *ngIf="(currentProjectTab$ | async) === 'projectOne'">
             <div class="video-container">
                 <video class="video" controls>
                     <source src="/animalReconnectVideo.mp4" type="video/mp4">
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div id="project-two" *ngIf="(fileService.currentFile$ | async) === 'projectTwo'">
+        <div id="project-two" *ngIf="(currentProjectTab$ | async) === 'projectTwo'">
             <div class="video-container">
                 <video class="video" controls>
                     <source src="/phredditVideo.mp4" type="video/mp4">
@@ -32,7 +32,7 @@
             </div>
         </div>
         
-        <div id="project-three" *ngIf="(fileService.currentFile$ | async) === 'projectThree'">
+        <div id="project-three" *ngIf="(currentProjectTab$ | async) === 'projectThree'">
             <div class="video-container">
                 <video class="video" controls>
                     <source src="/personalBlogVideo.mp4" type="video/mp4">
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div id="project-four" *ngIf="(fileService.currentFile$ | async) === 'projectFour'">
+        <div id="project-four" *ngIf="(currentProjectTab$ | async) === 'projectFour'">
             <div class="description-container">
                 <p class="name">Role-Playing Game | <span><a href="https://github.com/RapRegidor/RPG-with-Java-Swing" target="_blank">RPG Code</a></span></p>
                 <p class="description">This project was the one that motivated me to pursue Computer Science in college. Unfortunately, I have lost recordings and pictures that showcases this project. However, to descrive it, it is a 2D game that where an adventurer can interact with various NPCs, buying and selling equipments. User can also complete quests, level up, and encounter random monsters, fighting them in a turn based battle mechanics. </p>

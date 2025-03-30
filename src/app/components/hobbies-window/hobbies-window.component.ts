@@ -5,19 +5,21 @@ import { ToggleModeService } from '../../services/toggle-mode.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-projects-window',
+  selector: 'app-hobbies-window',
   imports: [CommonModule],
-  templateUrl: './projects-window.component.html',
-  styleUrl: './projects-window.component.css'
+  templateUrl: './hobbies-window.component.html',
+  styleUrl: './hobbies-window.component.css'
 })
-export class ProjectsWindowComponent {
-  currentProjectTab$!: Observable<string>;
+export class HobbiesWindowComponent {
+  currentHobbyTab$!: Observable<string>;
   isDarkMode$!: Observable<boolean>;
+
   constructor(private fileService: OpeningTabsService, private themeService: ToggleModeService){
-    this.currentProjectTab$ = this.fileService.currentProjectTab$;
+    this.currentHobbyTab$ = this.fileService.currentHobbyTab$;
     this.isDarkMode$ = this.themeService.isDarkMode$;
+
   }
   changeCurrentTab(file: string){
-    this.fileService.changeCurrentProjectTab(file);
+    this.fileService.changeCurrentHobbyTab(file);
   }
 }

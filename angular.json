@@ -27,7 +27,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "@angular/cdk/text-field-prebuilt.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -96,7 +97,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "@angular/cdk/text-field-prebuilt.css"
             ],
             "scripts": []
           }

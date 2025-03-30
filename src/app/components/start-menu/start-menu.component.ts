@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {trigger, transition, animate, style} from '@angular/animations';
 import { OpeningFilesService } from '../../services/opening-files.service';
+import { ToggleModeService } from '../../services/toggle-mode.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-start-menu',
@@ -23,7 +25,13 @@ import { OpeningFilesService } from '../../services/opening-files.service';
 })
 export class StartMenuComponent {
   isOptionsOpen = false;
-  constructor(public fileService: OpeningFilesService){}
+  isDarkMode$!: Observable<boolean>;
+  constructor(private fileService: OpeningFilesService, private themeService: ToggleModeService){
+    this.isDarkMode$ = this.themeService.isDarkMode$;
+  }
+  changeDisplay(file: string){
+    return this.themeService.changeDisplay(file);
+  }
   toggleOptions(){
     this.isOptionsOpen = !this.isOptionsOpen;
   }

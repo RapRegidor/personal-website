@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OpeningFilesService } from '../../services/opening-files.service';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-resume-window',
@@ -9,7 +10,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './resume-window.component.css'
 })
 export class ResumeWindowComponent {
-  constructor(public fileService: OpeningFilesService){}
+  currentFile$!: Observable<string>;
+  constructor(private fileService: OpeningFilesService){
+    this.currentFile$ = this.fileService.currentFile$;
+  }
   changeCurrentFile(file: string){
     this.fileService.changeCurrentFile(file);
   }

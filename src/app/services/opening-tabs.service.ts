@@ -5,14 +5,19 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class OpeningTabsService {
-  //observable source - emits it to new subscribers immediately upon subscription
-    private current = new BehaviorSubject<string>("projectOne");
+  //observable source - emits it to new subscribers immediately when subscribed
+  private currentProject = new BehaviorSubject<string>("projectOne");
+  private currentHobby = new BehaviorSubject<string>("hobbyOne");
 
-    //stream - 
-    currentFile$ = this.current.asObservable();
+  //stream - 
+  currentProjectTab$ = this.currentProject.asObservable();
+  currentHobbyTab$ = this.currentHobby.asObservable();
 
-    changeCurrentFile(file: string){
-      this.current.next(file);
-    }
+  changeCurrentProjectTab(file: string){
+    this.currentProject.next(file);
+  }
+  changeCurrentHobbyTab(file: string){
+    this.currentHobby.next(file);
+  }
 
 }

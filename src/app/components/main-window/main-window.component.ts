@@ -6,16 +6,18 @@ import { AboutMeWindowComponent } from "../about-me-window/about-me-window.compo
 import { ProjectsWindowComponent } from "../projects-window/projects-window.component";
 import { ContactsWindowComponent } from "../contacts-window/contacts-window.component";
 import { ResumeWindowComponent } from "../resume-window/resume-window.component";
+import { HobbiesWindowComponent } from "../hobbies-window/hobbies-window.component";
+import { ToggleModeService } from '../../services/toggle-mode.service';
 
 
 @Component({
   selector: 'app-main-window',
-  imports: [DragDropModule, CommonModule, AboutMeWindowComponent, ProjectsWindowComponent, ContactsWindowComponent, ResumeWindowComponent],
+  imports: [DragDropModule, CommonModule, AboutMeWindowComponent, ProjectsWindowComponent, ContactsWindowComponent, ResumeWindowComponent, HobbiesWindowComponent],
   templateUrl: './main-window.component.html',
   styleUrl: './main-window.component.css',
 })
 export class MainWindowComponent {
-  constructor(public fileService: OpeningFilesService){}
+  constructor(public fileService: OpeningFilesService, public themeService: ToggleModeService){}
   openFile(file: string){
     this.fileService.openFile(file);
   }
@@ -27,6 +29,11 @@ export class MainWindowComponent {
   }
   minimizeTab(file: string){
     this.fileService.closeFile(file, 1);
+  }
+
+  toggle(event: Event) {
+    const checkbox = event.target as HTMLInputElement;
+    this.themeService.toggleMode(checkbox.checked);
   }
   //get the window element width and height
   //put a threshold based on cursor

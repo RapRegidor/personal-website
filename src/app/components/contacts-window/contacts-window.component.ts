@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
 import { HttpClient } from '@angular/common/http';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 @Component({
   selector: 'app-contacts-window',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, TextFieldModule],
   templateUrl: './contacts-window.component.html',
   styleUrl: './contacts-window.component.css'
 })
@@ -15,7 +15,7 @@ export class ContactsWindowComponent {
   sendEmail(form: NgForm){
     
     if (form.valid) {
-      
+      form.reset();
       this.http.post("https://api.emailjs.com/api/v1.0/email/send",
       {
         lib_version: "4.4.1",
@@ -29,8 +29,7 @@ export class ContactsWindowComponent {
       }).subscribe(() => 
         console.log('Successfully sent!')
       );
-    } else {
-      console.log('Form is invalid!');
     }
   }
+  
 }
