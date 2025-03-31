@@ -8,6 +8,7 @@ import { ContactsWindowComponent } from "../contacts-window/contacts-window.comp
 import { ResumeWindowComponent } from "../resume-window/resume-window.component";
 import { HobbiesWindowComponent } from "../hobbies-window/hobbies-window.component";
 import { ToggleModeService } from '../../services/toggle-mode.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -17,7 +18,26 @@ import { ToggleModeService } from '../../services/toggle-mode.service';
   styleUrl: './main-window.component.css',
 })
 export class MainWindowComponent {
-  constructor(public fileService: OpeningFilesService, public themeService: ToggleModeService){}
+  isDarkMode$!: Observable<boolean>;
+  currentStack$!: Observable<string[]>;
+  isAboutMeOpen$!: Observable<boolean>;
+  isResumeOpen$!: Observable<boolean>;
+  isProjectsOpen$!: Observable<boolean>;
+  isHobbiesOpen$!: Observable<boolean>;
+  isContactsOpen$!: Observable<boolean>;
+
+  constructor(private fileService: OpeningFilesService, private themeService: ToggleModeService){
+    this.currentStack$ = this.fileService.currentStack$;
+    this.isDarkMode$ = this.themeService.isDarkMode$;
+    this.isAboutMeOpen$ = this.fileService.isAboutMeOpen$;
+    this.isResumeOpen$ = this.fileService.isResumeOpen$;
+    this.isProjectsOpen$ = this.fileService.isProjectsOpen$;
+    this.isHobbiesOpen$ = this.fileService.isHobbiesOpen$;
+    this.isContactsOpen$ = this.fileService.isContactsOpen$;
+  }
+  changeDisplay(file: string){
+    return this.themeService.changeDisplay(file);
+  }
   openFile(file: string){
     this.fileService.openFile(file);
   }

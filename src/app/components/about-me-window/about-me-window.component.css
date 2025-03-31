@@ -60,7 +60,7 @@
     width: 500px;
     align-self: center;
 }
-#about-me-title{
+.title{
     font-family:'Black Han Sans';
     font-weight:500;
     font-size: 30px;

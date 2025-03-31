@@ -1,23 +1,23 @@
-<div class="container" [ngClass]="{'dark-background': themeService.isDarkMode$ | async}">
+<div class="container" [ngClass]="{'dark-background': isDarkMode$ | async}">
     <div class="icon-bar">
         <figure (click)="openFile('aboutMe'); changeCurrentFile('aboutMe')">
-            <img [src]="themeService.changeDisplay('aboutMe')" alt="About Me File" class="files">
+            <img [src]="changeDisplay('aboutMe')" alt="About Me File" class="files">
             <figcaption>About Me</figcaption>
         </figure>
         <figure (click)="openFile('resume'); changeCurrentFile('resume')">
-            <img [src]="themeService.changeDisplay('resume')" alt="Resume File" class="files">
+            <img [src]="changeDisplay('resume')" alt="Resume File" class="files">
             <figcaption>Resume</figcaption>
         </figure>
         <figure (click)="openFile('projects'); changeCurrentFile('projects')">
-            <img [src]="themeService.changeDisplay('projects')" alt="Projects File" class="files">
+            <img [src]="changeDisplay('projects')" alt="Projects File" class="files">
             <figcaption>Projects</figcaption>
         </figure>
         <figure (click)="openFile('hobbies'); changeCurrentFile('hobbies')">
-            <img [src]="themeService.changeDisplay('hobbies')" alt="Hobbies File" class="files">
+            <img [src]="changeDisplay('hobbies')" alt="Hobbies File" class="files">
             <figcaption>Hobbies</figcaption>
         </figure>
         <figure (click)="openFile('contacts'); changeCurrentFile('contacts')">
-            <img [src]="themeService.changeDisplay('contacts')" alt="Contacts File" class="files">
+            <img [src]="changeDisplay('contacts')" alt="Contacts File" class="files">
             <figcaption>Contacts</figcaption>
         </figure>
     </div>
@@ -26,11 +26,11 @@
         <input type="checkbox" id="check" class="toggle" (change)="toggle($event)">
     </div>
 
-    <div cdkDrag class="file" id="about-me-file" *ngIf="fileService.isAboutMeOpen$ | async" (mousedown)="changeCurrentFile('aboutMe')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('aboutMe') ?? 1}">
-        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': themeService.isDarkMode$ | async}">
+    <div cdkDrag cdkDragBoundary=".container" class="file" id="about-me-file" *ngIf="isAboutMeOpen$ | async" (mousedown)="changeCurrentFile('aboutMe')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('aboutMe') ?? 1}">
+        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">About Me</p>
             <button class="minimize-file" (click)="minimizeTab('aboutMe')"><i class="fa-solid fa-minus"></i></button>
-            <!-- <button class="resize-file" (click)="minimizeTab('aboutMe')"><i class="fa-solid fa-window-maximize"></i></button> -->
+            <!-- <button class="resize-file" (click)="resizeFile('aboutMe')"><i class="fa-solid fa-window-maximize"></i></button> -->
             <!-- <i class="fa-solid fa-window-restore"></i> -->
             <button class="close-file" (click)="closeFile('aboutMe')"><i class="fa-solid fa-x"></i></button>
         </div>
@@ -39,8 +39,8 @@
         </div>
     </div>
 
-    <div cdkDrag class="file" id="projects-file" *ngIf="fileService.isProjectsOpen$ | async" (mousedown)="changeCurrentFile('projects')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('projects') ?? 1}">
-        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': themeService.isDarkMode$ | async}">
+    <div cdkDrag cdkDragBoundary=".container" class="file" id="projects-file" *ngIf="isProjectsOpen$ | async" (mousedown)="changeCurrentFile('projects')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('projects') ?? 1}">
+        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Projects</p>
             <button class="minimize-file" (click)="minimizeTab('projects')"><i class="fa-solid fa-minus"></i></button>
             <!-- <button class="resize-file" (click)="minimizeTab('projects')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
@@ -51,8 +51,8 @@
         </div>
     </div>
 
-    <div cdkDrag class="file" id="contacts-file" *ngIf="fileService.isContactsOpen$ | async" (mousedown)="changeCurrentFile('contacts')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('contacts') ?? 1}">
-        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': themeService.isDarkMode$ | async}">
+    <div cdkDrag cdkDragBoundary=".container" class="file" id="contacts-file" *ngIf="isContactsOpen$ | async" (mousedown)="changeCurrentFile('contacts')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('contacts') ?? 1}">
+        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Contacts</p>
             <button class="minimize-file" (click)="minimizeTab('contacts')"><i class="fa-solid fa-minus"></i></button>
             <!-- <button class="resize-file" (click)="minimizeTab('contacts')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
@@ -63,8 +63,8 @@
         </div>
     </div>
 
-    <div cdkDrag class="file" id="resume-file" *ngIf="fileService.isResumeOpen$ | async" (mousedown)="changeCurrentFile('resume')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('resume') ?? 1}">
-        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': themeService.isDarkMode$ | async}">
+    <div cdkDrag cdkDragBoundary=".container" class="file" id="resume-file" *ngIf="isResumeOpen$ | async" (mousedown)="changeCurrentFile('resume')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('resume') ?? 1}">
+        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Resume</p>
             <button class="minimize-file" (click)="minimizeTab('resume')"><i class="fa-solid fa-minus"></i></button>
             <!-- <button class="resize-file" (click)="minimizeTab('resume')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
@@ -75,8 +75,8 @@
         </div>
     </div>
 
-    <div cdkDrag class="file" id="hobbies-file" *ngIf="fileService.isHobbiesOpen$ | async" (mousedown)="changeCurrentFile('hobbies')" [ngStyle]="{'z-index': (fileService.currentStack$ | async)?.indexOf('hobbies') ?? 1}">
-        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': themeService.isDarkMode$ | async}">
+    <div cdkDrag cdkDragBoundary=".container" class="file" id="hobbies-file" *ngIf="isHobbiesOpen$ | async" (mousedown)="changeCurrentFile('hobbies')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('hobbies') ?? 1}">
+        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Hobbies</p>
             <button class="minimize-file" (click)="minimizeTab('hobbies')"><i class="fa-solid fa-minus"></i></button>
             <!-- <button class="resize-file" (click)="minimizeTab('hobbies')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
