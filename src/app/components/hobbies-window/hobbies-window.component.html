@@ -1,5 +1,5 @@
-<div class="content" [ngClass]="{'dark-bar': isDarkMode$ | async}" id="hobbies-content">
-    <div class="nav-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
+<div class="content" [ngClass]="{'dark-background': isDarkMode$ | async}" id="hobbies-content">
+    <div class="nav-bar" [ngClass]="{'dark-background': isDarkMode$ | async}">
         <button class="project-button" id="first" (click)="changeCurrentTab('hobbyOne')">01 Swimming</button>
         <button class="project-button" id="second" (click)="changeCurrentTab('hobbyTwo')">02 Drawing</button>
         <button class="project-button" id="third" (click)="changeCurrentTab('hobbyThree')">03 Hiking & Camping</button>
