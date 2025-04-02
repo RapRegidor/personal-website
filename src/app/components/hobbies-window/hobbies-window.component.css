@@ -157,7 +157,7 @@
 .slideshow-button{
     position:absolute;
     width:50px;
-    height:100%;   
+    height:calc(100% - 10px);   
     align-self: center;
     background-color: transparent;
     border: none;
