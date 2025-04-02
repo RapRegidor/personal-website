@@ -26,12 +26,11 @@
         <input type="checkbox" id="check" class="toggle" (change)="toggle($event)">
     </div>
 
-    <div cdkDrag cdkDragBoundary=".container" class="file" id="about-me-file" *ngIf="isAboutMeOpen$ | async" (mousedown)="changeCurrentFile('aboutMe')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('aboutMe') ?? 1}">
+    <div cdkDrag cdkDragBoundary=".container" [ngClass]="{'file':true, 'full-screen': maximizeAbtMe}" id="about-me-file" *ngIf="isAboutMeOpen$ | async" (mousedown)="changeCurrentFile('aboutMe')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('aboutMe') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">About Me</p>
             <button class="minimize-file" (click)="minimizeTab('aboutMe')"><i class="fa-solid fa-minus"></i></button>
-            <!-- <button class="resize-file" (click)="resizeFile('aboutMe')"><i class="fa-solid fa-window-maximize"></i></button> -->
-            <!-- <i class="fa-solid fa-window-restore"></i> -->
+            <button class="resize-file" (click)="resizeFile('aboutMe')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeAbtMe, 'fa-window-restore': maximizeAbtMe}"></i></button>
             <button class="close-file" (click)="closeFile('aboutMe')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="about-me-container">
@@ -39,11 +38,11 @@
         </div>
     </div>
 
-    <div cdkDrag cdkDragBoundary=".container" class="file" id="projects-file" *ngIf="isProjectsOpen$ | async" (mousedown)="changeCurrentFile('projects')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('projects') ?? 1}">
+    <div cdkDrag cdkDragBoundary=".container" [ngClass]="{'file':true, 'full-screen': maximizeProjects}" id="projects-file" *ngIf="isProjectsOpen$ | async" (mousedown)="changeCurrentFile('projects')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('projects') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Projects</p>
             <button class="minimize-file" (click)="minimizeTab('projects')"><i class="fa-solid fa-minus"></i></button>
-            <!-- <button class="resize-file" (click)="minimizeTab('projects')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
+            <button class="resize-file" (click)="resizeFile('projects')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeProjects, 'fa-window-restore': maximizeProjects}"></i></button>
             <button class="close-file" (click)="closeFile('projects')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="projects-container">
@@ -51,11 +50,11 @@
         </div>
     </div>
 
-    <div cdkDrag cdkDragBoundary=".container" class="file" id="contacts-file" *ngIf="isContactsOpen$ | async" (mousedown)="changeCurrentFile('contacts')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('contacts') ?? 1}">
+    <div cdkDrag cdkDragBoundary=".container" [ngClass]="{'file':true, 'full-screen': maximizeContacts}" id="contacts-file" *ngIf="isContactsOpen$ | async" (mousedown)="changeCurrentFile('contacts')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('contacts') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Contacts</p>
             <button class="minimize-file" (click)="minimizeTab('contacts')"><i class="fa-solid fa-minus"></i></button>
-            <!-- <button class="resize-file" (click)="minimizeTab('contacts')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
+            <button class="resize-file" (click)="resizeFile('contacts')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeContacts, 'fa-window-restore': maximizeContacts}"></i></button>
             <button class="close-file" (click)="closeFile('contacts')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="contacts-container">
@@ -63,11 +62,11 @@
         </div>
     </div>
 
-    <div cdkDrag cdkDragBoundary=".container" class="file" id="resume-file" *ngIf="isResumeOpen$ | async" (mousedown)="changeCurrentFile('resume')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('resume') ?? 1}">
+    <div cdkDrag cdkDragBoundary=".container" [ngClass]="{'file':true, 'full-screen': maximizeResume}" id="resume-file" *ngIf="isResumeOpen$ | async" (mousedown)="changeCurrentFile('resume')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('resume') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Resume</p>
             <button class="minimize-file" (click)="minimizeTab('resume')"><i class="fa-solid fa-minus"></i></button>
-            <!-- <button class="resize-file" (click)="minimizeTab('resume')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
+            <button class="resize-file" (click)="resizeFile('resume')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeResume, 'fa-window-restore': maximizeResume}"></i></button>
             <button class="close-file" (click)="closeFile('resume')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="resume-container">
@@ -75,11 +74,11 @@
         </div>
     </div>
 
-    <div cdkDrag cdkDragBoundary=".container" class="file" id="hobbies-file" *ngIf="isHobbiesOpen$ | async" (mousedown)="changeCurrentFile('hobbies')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('hobbies') ?? 1}">
+    <div cdkDrag cdkDragBoundary=".container" [ngClass]="{'file':true, 'full-screen': maximizeHobbies}" id="hobbies-file" *ngIf="isHobbiesOpen$ | async" (mousedown)="changeCurrentFile('hobbies')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('hobbies') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Hobbies</p>
             <button class="minimize-file" (click)="minimizeTab('hobbies')"><i class="fa-solid fa-minus"></i></button>
-            <!-- <button class="resize-file" (click)="minimizeTab('hobbies')"><i class="fa-solid fa-window-maximize"></i></button> have to check if its maximized or not -->
+            <button class="resize-file" (click)="resizeFile('hobbies')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeHobbies, 'fa-window-restore': maximizeHobbies}"></i></button>
             <button class="close-file" (click)="closeFile('hobbies')"><i class="fa-solid fa-x"></i></button>
         </div>
         <div id="hobbies-container">

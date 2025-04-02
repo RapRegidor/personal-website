@@ -58,4 +58,26 @@ export class MainWindowComponent {
   //get the window element width and height
   //put a threshold based on cursor
   //get preview of the snapping
+  maximizeAbtMe = false;
+  maximizeResume = false;
+  maximizeProjects = false;
+  maximizeHobbies = false;
+  maximizeContacts = false;
+  resizeFile(file: string){
+    if(file === 'aboutMe'){
+      this.maximizeAbtMe = !this.maximizeAbtMe;
+    }
+    if(file === 'resume'){
+      this.maximizeResume = !this.maximizeResume;
+    }
+    if(file === 'projects'){
+      this.maximizeProjects = !this.maximizeProjects;
+    }
+    if(file === 'hobbies'){
+      this.maximizeHobbies = !this.maximizeHobbies;
+    }
+    if(file === 'contacts'){
+      this.maximizeContacts = !this.maximizeContacts;
+    }
+  }
 }
