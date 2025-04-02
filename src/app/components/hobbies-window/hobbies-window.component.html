@@ -6,22 +6,27 @@
     </div>
     <div id="content-container" >
         <div id="hobby-one" *ngIf="(currentHobbyTab$ | async) === 'hobbyOne'">
-            <div class="video-container">
-                <video class="video" controls>
-                    <source src="/animalReconnectVideo.mp4" type="video/mp4">
-                </video>
+            <div class="outer-slideshow">
+                <button class="slideshow-button slideshow-button-left" (click)="prevSwimImage()"><i class="fa-solid fa-less-than"></i></button>
+                <div class="slideshow-container">
+                    <img *ngFor="let img of swimImages" [src]="img" class="images" [style.transform]="'translateX(-' + currentSwimIndex * 100 + '%)'">
+                </div>
+                <button class="slideshow-button slideshow-button-right" (click)="nextSwimImage()"><i class="fa-solid fa-greater-than"></i></button>
             </div>
+        
             <div class="description-container">
                 <p class="name">Swimming</p>
                 <p class="description">I was once a competitive swimmer.  I started when I was 9 years old, following the footsteps of my sisters; It was a decision my parents made and looking back, I truly appreciate what they did for me. It was this sport that taught me discipline and pushed me to challenge myself consistently. This is where I developed my competitive mindset, which is now influencing how I approach programming. Beyond that, it is also a sport that allowed me to meet some of my life-long friends. I’m deeply grateful for what this sport has given me.</p>
             </div>
         </div>
-
+        
         <div id="hobby-two" *ngIf="(currentHobbyTab$ | async) === 'hobbyTwo'">
-            <div class="video-container">
-                <video class="video" controls>
-                    <source src="/phredditVideo.mp4" type="video/mp4">
-                </video>
+            <div class="outer-slideshow">
+                <button class="slideshow-button slideshow-button-left" (click)="prevDrawingImage()"><i class="fa-solid fa-less-than"></i></button>
+                <div class="slideshow-container">
+                    <img *ngFor="let img of drawingImages" [src]="img" class="images" [style.transform]="'translateX(-' + currentDrawingIndex * 100 + '%)'">
+                </div>
+                <button class="slideshow-button slideshow-button-right" (click)="nextDrawingImage()"><i class="fa-solid fa-greater-than"></i></button>
             </div>
             <div class="description-container">
                 <p class="name">Drawing</p>
@@ -31,10 +36,12 @@
         </div>
         
         <div id="hobby-three" *ngIf="(currentHobbyTab$ | async) === 'hobbyThree'">
-            <div class="video-container">
-                <video class="video" controls>
-                    <source src="/personalBlogVideo.mp4" type="video/mp4">
-                </video>
+            <div class="outer-slideshow">
+                <button class="slideshow-button slideshow-button-left" (click)="prevHCImage()"><i class="fa-solid fa-less-than"></i></button>
+                <div class="slideshow-container">
+                    <img *ngFor="let img of hikingCampingImages" [src]="img" class="images" [style.transform]="'translateX(-' + currentHCIndex * 100 + '%)'">
+                </div>
+                <button class="slideshow-button slideshow-button-right" (click)="nextHCImage()"><i class="fa-solid fa-greater-than"></i></button>
             </div>
             <div class="description-container">
                 <p class="name">Hiking & Camping</p>

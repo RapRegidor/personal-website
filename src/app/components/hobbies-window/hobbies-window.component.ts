@@ -22,4 +22,53 @@ export class HobbiesWindowComponent {
   changeCurrentTab(file: string){
     this.fileService.changeCurrentHobbyTab(file);
   }
+  swimImages = [
+    '/swimming1.jpg',
+    '/swimming2.jpg',
+    '/swimming3.jpg'
+  ];
+  
+  currentSwimIndex = 0;
+  
+  prevSwimImage() {
+    this.currentSwimIndex = (this.currentSwimIndex - 1 + this.swimImages.length) % this.swimImages.length;
+  }
+  
+  nextSwimImage() {
+    this.currentSwimIndex = (this.currentSwimIndex + 1) % this.swimImages.length;
+  }
+
+  hikingCampingImages = [
+    '/hiking-and-camping2.jpg',
+    '/hiking-and-camping3.JPG',
+    '/hiking-and-camping4.jpg',
+    '/hiking-and-camping5.jpg'
+  ];
+  
+  currentHCIndex = 0;
+  
+  prevHCImage() {
+    this.currentHCIndex = (this.currentHCIndex - 1 + this.hikingCampingImages.length) % this.hikingCampingImages.length;
+  }
+  
+  nextHCImage() {
+    this.currentHCIndex = (this.currentHCIndex + 1) % this.hikingCampingImages.length;
+  }
+
+  drawingImages = [
+    '/drawing1.jpg',
+    '/drawing2.jpg',
+    '/drawing3.jpg',
+    '/drawing4.jpg'
+  ];
+  
+  currentDrawingIndex = 0;
+  
+  prevDrawingImage() {
+    this.currentDrawingIndex = (this.currentDrawingIndex - 1 + this.drawingImages.length) % this.drawingImages.length;
+  }
+  
+  nextDrawingImage() {
+    this.currentDrawingIndex = (this.currentDrawingIndex + 1) % this.drawingImages.length;
+  }
 }

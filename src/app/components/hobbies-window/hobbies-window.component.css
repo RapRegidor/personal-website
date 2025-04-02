@@ -86,16 +86,8 @@
     border-radius:0px 0px 10px 10px;
 }
 
-.video-container{
-    margin-top:30px;
-    max-width:50%;
-    
-}
-.video{
-    width:100%;
-    border-radius: 10px;
-    box-shadow: 0px 5px 10px black;
-}
+
+
 
 .description-container{
     margin: 15px 15px 30px 15px;
@@ -126,3 +118,58 @@
 .dark-background{
     background-color:rgb(233, 67, 67);
 }
+
+
+.video-container{
+    margin-top:30px;
+    max-width:50%;
+    
+}
+.video{
+    width:100%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px black;
+}
+
+.outer-slideshow{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    max-width: 50%;
+}
+.slideshow-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.images{
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slideshow-button{
+    position:absolute;
+    width:50px;
+    height:100%;   
+    align-self: center;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+.slideshow-button:hover{
+    background-color: rgba(0, 0, 0, 0.389);
+}
+.slideshow-button-left{
+    left: -50px
+}
+.slideshow-button-right{
+    right: -50px
+}
+
+
