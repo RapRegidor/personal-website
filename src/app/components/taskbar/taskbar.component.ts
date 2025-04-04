@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
 import { StartMenuComponent } from "../start-menu/start-menu.component";
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {trigger, transition, animate, style} from '@angular/animations';
@@ -56,12 +56,20 @@ export class TaskbarComponent implements OnInit, OnDestroy{
   currentStack$!: Observable<string[]>;
   currentFile$!: Observable<string>;
 
-  constructor(private fileService: OpeningFilesService, private cdr: ChangeDetectorRef, private ngZone: NgZone,  @Inject(PLATFORM_ID) private platformId: Object, private weatherService: WeatherService, private themeService: ToggleModeService) {
+  listener = () => {};
+
+  constructor(private renderer: Renderer2, private el: ElementRef, private fileService: OpeningFilesService, private cdr: ChangeDetectorRef, private ngZone: NgZone,  @Inject(PLATFORM_ID) private platformId: Object, private weatherService: WeatherService, private themeService: ToggleModeService) {
     this.openedFiles$ = this.fileService.openedFiles$;
     this.currentStack$ = this.fileService.currentStack$;
     this.currentFile$ = this.fileService.currentFile$;
+    this.listener = this.renderer.listen('document', 'click',(e:Event)=>{
+      const target = e.target as HTMLElement;
+      if(!this.el.nativeElement.contains(target)){
+        this.isMenuOpen = false;
+      }
+    });
   }
-  
+
   ngOnInit(): void {
     this.openingFileSubscription = this.fileService.currentFile$.subscribe(file => {
       this.currentFile = file;
@@ -91,6 +99,7 @@ export class TaskbarComponent implements OnInit, OnDestroy{
     if(this.openingFileSubscription){
       this.openingFileSubscription.unsubscribe();
     }
+    this.listener();
   }
 
   changeDisplay(file: string){
