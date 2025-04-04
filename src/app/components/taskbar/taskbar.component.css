@@ -11,6 +11,7 @@
 .windows-button{
     text-align: center;
     background-color: transparent;
+    border:none;
 }
 .windows-button:hover{
     color:rgb(65, 65, 245);
