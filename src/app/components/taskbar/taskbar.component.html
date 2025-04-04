@@ -1,8 +1,8 @@
 <div #taskbar class="taskbar">
-    <button class="windows-button" (click)="toggleMenu()"><font face=Wingdings id="windows-icon">&#xff;</font></button>
+    <button class="windows-button" (click)="toggleMenu();"><font face=Wingdings id="windows-icon">&#xff;</font></button>
     <div class="search-container">
-        <i class="fa fa-search" aria-hidden="true" id="icon" (click)="searchBar(searchInput)" ></i>
-        <input id="search-file" type="text" placeholder="Type here to search" class="search-bar" #searchInput (click)="searchBar(searchInput)"/>
+        <i class="fa fa-search" aria-hidden="true" id="icon" (click)="searchBar()" ></i>
+        <input id="search-file" type="text" placeholder="Type here to search" class="search-bar" #searchInput (click)="searchBar()"/>
     </div>
     <div class="menu-container" *ngIf="isMenuOpen" @openClose>
         <app-start-menu></app-start-menu>

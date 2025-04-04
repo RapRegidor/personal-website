@@ -105,13 +105,16 @@ export class TaskbarComponent implements OnInit, OnDestroy{
   changeDisplay(file: string){
     return this.themeService.changeDisplay(file);
   }
-
-  searchBar(searchInput: HTMLInputElement) {
-    searchInput.focus();
+  @ViewChild('searchInput') search!:ElementRef;
+  searchBar() {
+    this.search.nativeElement.focus();
     this.isMenuOpen = true;
   }
   
   toggleMenu(){
+    if(!this.isMenuOpen){
+      this.search.nativeElement.focus();
+    }
     this.isMenuOpen = !this.isMenuOpen;
   }
 

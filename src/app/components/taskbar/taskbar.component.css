@@ -42,7 +42,8 @@
     position:absolute;
     left:13px;
     top: 13px;
-    font-size:20px
+    font-size:20px;
+    cursor:text;
 }
 .menu-container{
     position:absolute;
