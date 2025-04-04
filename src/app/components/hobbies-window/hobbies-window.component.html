@@ -9,8 +9,10 @@
             <div class="outer-slideshow">
                 <button class="slideshow-button slideshow-button-left" (click)="prevSwimImage()"><i class="fa-solid fa-less-than"></i></button>
                 <div class="slideshow-container">
-                    <img *ngFor="let img of swimImages" [src]="img" class="images" [style.transform]="'translateX(-' + currentSwimIndex * 100 + '%)'">
-                </div>
+                    <div class="slideshow-inner" [style.transform]="'translateX(-' + currentSwimIndex * 100 + '%)'">
+                      <img *ngFor="let img of swimImages" [src]="img" class="images">
+                    </div>
+                  </div>
                 <button class="slideshow-button slideshow-button-right" (click)="nextSwimImage()"><i class="fa-solid fa-greater-than"></i></button>
             </div>
         
@@ -23,8 +25,11 @@
         <div id="hobby-two" *ngIf="(currentHobbyTab$ | async) === 'hobbyTwo'">
             <div class="outer-slideshow">
                 <button class="slideshow-button slideshow-button-left" (click)="prevDrawingImage()"><i class="fa-solid fa-less-than"></i></button>
+                
                 <div class="slideshow-container">
-                    <img *ngFor="let img of drawingImages" [src]="img" class="images" [style.transform]="'translateX(-' + currentDrawingIndex * 100 + '%)'">
+                    <div class="slideshow-inner" [style.transform]="'translateX(-' + currentDrawingIndex * 100 + '%)'">
+                        <img *ngFor="let img of drawingImages" [src]="img" class="images">
+                    </div>
                 </div>
                 <button class="slideshow-button slideshow-button-right" (click)="nextDrawingImage()"><i class="fa-solid fa-greater-than"></i></button>
             </div>
@@ -39,7 +44,10 @@
             <div class="outer-slideshow">
                 <button class="slideshow-button slideshow-button-left" (click)="prevHCImage()"><i class="fa-solid fa-less-than"></i></button>
                 <div class="slideshow-container">
-                    <img *ngFor="let img of hikingCampingImages" [src]="img" class="images" [style.transform]="'translateX(-' + currentHCIndex * 100 + '%)'">
+                    <div class="slideshow-inner" [style.transform]="'translateX(-' + currentHCIndex * 100 + '%)'">
+                        <img *ngFor="let img of hikingCampingImages" [src]="img" class="images">
+                
+                    </div>
                 </div>
                 <button class="slideshow-button slideshow-button-right" (click)="nextHCImage()"><i class="fa-solid fa-greater-than"></i></button>
             </div>
