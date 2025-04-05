@@ -9,6 +9,7 @@ import { ResumeWindowComponent } from "../resume-window/resume-window.component"
 import { HobbiesWindowComponent } from "../hobbies-window/hobbies-window.component";
 import { ToggleModeService } from '../../services/toggle-mode.service';
 import { Observable } from 'rxjs';
+import {trigger, transition, animate, style} from '@angular/animations';
 
 
 @Component({
@@ -16,6 +17,18 @@ import { Observable } from 'rxjs';
   imports: [DragDropModule, CommonModule, AboutMeWindowComponent, ProjectsWindowComponent, ContactsWindowComponent, ResumeWindowComponent, HobbiesWindowComponent],
   templateUrl: './main-window.component.html',
   styleUrl: './main-window.component.css',
+  animations:[
+    trigger('openCloseFile',[
+      transition(':enter',[
+        style({minHeight: '0px', opacity: 0}),
+        animate('100ms ease-in', style({height:'*', opacity: 1}))
+      ]),
+      transition(':leave',[
+        style({height:'*', opacity: 1}),
+        animate('100ms ease-out', style({minHeight: '0px', opacity: 0}))
+      ]),
+    ]),
+  ],
 })
 export class MainWindowComponent {
   isDarkMode$!: Observable<boolean>;
