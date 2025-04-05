@@ -26,7 +26,7 @@
         <input type="checkbox" id="check" class="toggle" (change)="toggle($event)">
     </div>
 
-    <div appResizable cdkDrag cdkDragBoundary=".container" [ngClass]="{'file':true, 'full-screen': maximizeAbtMe}" id="about-me-file" *ngIf="isAboutMeOpen$ | async" (mousedown)="changeCurrentFile('aboutMe')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('aboutMe') ?? 1}">
+    <div cdkDrag cdkDragBoundary=".container" [ngClass]="{'file':true, 'full-screen': maximizeAbtMe}" id="about-me-file" *ngIf="isAboutMeOpen$ | async" (mousedown)="changeCurrentFile('aboutMe')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('aboutMe') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">About Me</p>
             <button class="minimize-file" (click)="minimizeTab('aboutMe')"><i class="fa-solid fa-minus"></i></button>
