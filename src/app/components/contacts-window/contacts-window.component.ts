@@ -6,7 +6,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
 
 @Component({
   selector: 'app-contacts-window',
-  imports: [FormsModule, CommonModule, TextFieldModule],
+  imports: [CommonModule, TextFieldModule, FormsModule],
   templateUrl: './contacts-window.component.html',
   styleUrl: './contacts-window.component.css'
 })
@@ -22,7 +22,7 @@ export class ContactsWindowComponent {
         service_id: "service_qsp5msc",
         template_id: "template_ut8oyxj",
         template_params: {...form.value},
-        user_id: "9_fLfwempaf0B82Sy",
+        user_id: "9_fLfwempaf0B82Sy"
       },
       {
         responseType: 'text',
