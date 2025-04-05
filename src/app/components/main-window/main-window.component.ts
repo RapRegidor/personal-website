@@ -9,11 +9,12 @@ import { ResumeWindowComponent } from "../resume-window/resume-window.component"
 import { HobbiesWindowComponent } from "../hobbies-window/hobbies-window.component";
 import { ToggleModeService } from '../../services/toggle-mode.service';
 import { Observable } from 'rxjs';
+import { ResizableDirective } from '../../directives/resizable.directive';
 
 
 @Component({
   selector: 'app-main-window',
-  imports: [DragDropModule, CommonModule, AboutMeWindowComponent, ProjectsWindowComponent, ContactsWindowComponent, ResumeWindowComponent, HobbiesWindowComponent],
+  imports: [DragDropModule, CommonModule, AboutMeWindowComponent, ProjectsWindowComponent, ContactsWindowComponent, ResumeWindowComponent, HobbiesWindowComponent, ResizableDirective],
   templateUrl: './main-window.component.html',
   styleUrl: './main-window.component.css',
 })

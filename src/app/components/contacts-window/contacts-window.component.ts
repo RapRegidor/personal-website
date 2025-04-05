@@ -22,7 +22,7 @@ export class ContactsWindowComponent {
         service_id: "service_qsp5msc",
         template_id: "template_ut8oyxj",
         template_params: {...form.value},
-        user_id: "9_fLfwempaf0B82Sy"
+        user_id: "9_fLfwempaf0B82Sy",
       },
       {
         responseType: 'text',
