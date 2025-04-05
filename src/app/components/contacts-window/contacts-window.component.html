@@ -43,7 +43,11 @@
                 <div class="count">{{ msg?.value?.length || 0 }}/1000</div>
                 <div class="asterisk">*</div>
             </div>
-            <button class="form-elements" id="button" type="submit" [disabled]="emailForm.invalid">Send</button>
+            <ngx-recaptcha2 #captchaElem [siteKey]='siteKey' (success)="handleSuccess($event)" (reset)="handleReset()" (expire)="handleExpire()">
+            </ngx-recaptcha2>
+            <button class="form-elements" id="button" type="submit" [disabled]="emailForm.invalid || !getCaptchaResponse() || sent">Send</button>
+            <p *ngIf="sendSuccess" class="send-response">Successfully submitted ✔️</p>
+            <p *ngIf="sendError" class="send-response">Something went wrong. Please try again ❌</p>
         </form>
     </div>
 </div>
