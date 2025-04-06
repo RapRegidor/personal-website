@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { OpeningFilesService } from '../../services/opening-files.service';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-about-me-window',
