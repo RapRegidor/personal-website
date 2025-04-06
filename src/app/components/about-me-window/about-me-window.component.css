@@ -238,6 +238,7 @@ strong{
 }
 .experience-title svg{
     vertical-align: bottom;
+    transition: transform ease-out 0.1s;
 }
 .reference:hover svg:first-of-type{
     transform: translate(5px, -5px);
