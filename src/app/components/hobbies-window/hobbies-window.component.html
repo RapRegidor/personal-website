@@ -28,7 +28,7 @@
                 
                 <div class="slideshow-container">
                     <div class="slideshow-inner" [style.transform]="'translateX(-' + currentDrawingIndex * 100 + '%)'">
-                        <img *ngFor="let img of drawingImages" [src]="img" class="images">
+                        <img *ngFor="let img of drawingImages; let i = index" [src]="img" class="images" [ngClass]="{'image4': i === 3}">
                     </div>
                 </div>
                 <button class="slideshow-button slideshow-button-right" (click)="nextDrawingImage()"><i class="fas fa-chevron-right"></i></button>

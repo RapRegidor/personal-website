@@ -81,10 +81,15 @@
     width:70%;
     padding: 0px 50px 0px 100px;
 }
-#secondAbtMeImg{
-    object-fit: cover;
+#secondAbtMeImgContainer{
     width:30%;
-    padding-right:50px;
+    padding-right: 100px;
+}
+#secondAbtMeImg{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    border-radius: 10px;
 }
 .title{
     font-family:'Black Han Sans';
@@ -102,8 +107,8 @@
 
 #experience-container{
     background-color: #E8E6E6;
-    width:80%;
     max-width: 1200px;
+    width: 90%;
     align-self: center;
     margin-top:40px;
     margin-bottom:60px;
