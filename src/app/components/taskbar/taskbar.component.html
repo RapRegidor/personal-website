@@ -1,7 +1,7 @@
 <div #taskbar class="taskbar">
     <button class="windows-button" (click)="toggleMenu();"><font face=Wingdings id="windows-icon">&#xff;</font></button>
     <div class="search-container">
-        <i class="fa fa-search" aria-hidden="true" id="icon" (click)="searchBar()" ></i>
+        <img src="/search-svgrepo-com.svg" id="icon" (click)="searchBar()" >
         <input id="search-file" type="text" placeholder="Type here to search" class="search-bar" #searchInput (click)="searchBar()"/>
     </div>
     <div class="menu-container" *ngIf="isMenuOpen" @openClose>
@@ -25,7 +25,7 @@
     </div>
     <div id="weather">
          <div *ngIf="forecast" id="weather-forecast">
-            <i class="fa" [ngClass]="weatherIcon" [ngStyle]="weatherColor" id="weather-icon"></i>
+            <img [src]="weatherIcon" id="weather-icon">
             <div id="weather-properties" title="{{forecast.periods[0].shortForecast.length > 25 ? forecast.periods[0].shortForecast + '\n' : ''}}Weather updates every 12 hours from weather.gov">
                 <p>{{forecast.periods[0].shortForecast | slice:0:25 }}{{forecast.periods[0].shortForecast.length > 25 ? '...' : '' }}</p>
                 <p>{{forecast.periods[0].temperature}}°{{forecast.periods[0].temperatureUnit}}</p>

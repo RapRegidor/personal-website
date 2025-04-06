@@ -210,9 +210,13 @@ strong{
     margin-right: 5px;
 }
 #resume-link:hover {
-    color: darkblue;
+    color: teal;
     text-decoration: underline;
 }
+#resume-link svg {
+    vertical-align:bottom;
+    margin-right: 2px; /* space between icon and text */
+  }
 #imgTitle{
     align-self: center;
 }
@@ -231,4 +235,11 @@ strong{
 }
 .reference:hover .experience-title:first-of-type {
     color:teal;
+}
+.experience-title svg{
+    vertical-align: bottom;
+}
+.reference:hover svg:first-of-type{
+    transform: translate(5px, -5px);
+    transition: transform ease-in 0.1s
 }

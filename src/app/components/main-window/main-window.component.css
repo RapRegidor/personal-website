@@ -105,6 +105,9 @@ figure:hover{
     width: 35px;
     border:none;
     margin-right:2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .minimize-file:hover, .resize-file:hover{
@@ -116,6 +119,9 @@ figure:hover{
     height: 35px;
     width: 35px;
     border:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .close-file:hover{

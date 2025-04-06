@@ -159,14 +159,13 @@
     width:50px;
     height:100%;   
     align-self: center;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.159);
     border: none;
-    font-size: 25px;
     cursor: pointer;
     z-index: 2;
-    color:rgb(255, 255, 255);
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .slideshow-button:hover{
     background-color: rgba(0, 0, 0, 0.502);

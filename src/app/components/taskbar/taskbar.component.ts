@@ -44,8 +44,7 @@ export class TaskbarComponent implements OnInit, OnDestroy{
   private latitude:number = 40.7128;
   private longtitude:number = -74.0060;
   forecast: any;
-  weatherColor: any = { color: "white" };
-  weatherIcon: any = { color: "fa-question" };
+  weatherIcon: any = '/question-mark-outline-svgrepo-com.svg';
 
   private weatherSubscription: Subscription | undefined;
   private openingFileSubscription: Subscription | undefined;
@@ -131,7 +130,6 @@ export class TaskbarComponent implements OnInit, OnDestroy{
     this.weatherSubscription = this.weatherService.getForecast(this.latitude, this.longtitude).subscribe({
       next: (result) => {
         this.forecast = result;
-        this.weatherColor = this.getWeatherColor(this.forecast?.periods[0]?.shortForecast);
         this.weatherIcon = this.getWeatherIcon(this.forecast?.periods[0]?.shortForecast);
         this.cdr.detectChanges(); 
       },
@@ -143,48 +141,25 @@ export class TaskbarComponent implements OnInit, OnDestroy{
 
   getWeatherIcon(shortForecast: string): string {
     if (!shortForecast){
-       return "fa-question";
+       return "/question-mark-outline-svgrepo-com.svg";
     }
     const forecast = shortForecast.toLowerCase();
     if (forecast.includes("sunny")){
-      return "fa-sun";
+      return "/sun-svgrepo-com.svg";
     }
     if (forecast.includes("cloudy")){
-      return "fa-cloud";
+      return "/cloudy-cloud-svgrepo-com.svg";
     }
     if (forecast.includes("rain")){
-      return "fa-cloud-rain";
+      return "/rain-alt-svgrepo-com.svg";
     }
     if (forecast.includes("thunderstorm")){
-      return "fa-bolt";
+      return "/thunderstorm-wind-gale-svgrepo-com.svg";
     }
     if (forecast.includes("snow")){
-      return "fa-snowflake";
+      return "/snow-flake-svgrepo-com.svg";
     }
-    return "fa-smog";
-  }
-
-  getWeatherColor(shortForecast: string): any{
-    if (!shortForecast){
-      return {color: "white"};
-   }
-   const forecast = shortForecast.toLowerCase();
-   if (forecast.includes("sunny")){
-     return {color: "gold"};
-   }
-   if (forecast.includes("cloudy")){
-     return {color: "gray"};
-   }
-   if (forecast.includes("rain")){
-     return {color: "blue"};
-   }
-   if (forecast.includes("thunderstorm")){
-     return {color: "red"};
-   }
-   if (forecast.includes("snow")){
-     return {color: "cyan"};
-   }
-   return {color: "white"};
+    return "/smog-svgrepo-com.svg";
   }
 
   getIcon(file: string){

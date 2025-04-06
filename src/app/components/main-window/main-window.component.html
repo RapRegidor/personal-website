@@ -29,9 +29,25 @@
     <div @openCloseFile cdkDrag [ngClass]="{'file':true, 'full-screen': maximizeAbtMe}" id="about-me-file" *ngIf="isAboutMeOpen$ | async" (mousedown)="changeCurrentFile('aboutMe')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('aboutMe') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">About Me</p>
-            <button class="minimize-file" (click)="minimizeTab('aboutMe')"><i class="fa-solid fa-minus"></i></button>
-            <button class="resize-file" (click)="resizeFile('aboutMe')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeAbtMe, 'fa-window-restore': maximizeAbtMe}"></i></button>
-            <button class="close-file" (click)="closeFile('aboutMe')"><i class="fa-solid fa-x"></i></button>
+            <button class="minimize-file" (click)="minimizeTab('aboutMe')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg></button>
+            <button class="resize-file" (click)="resizeFile('aboutMe')">
+                <ng-container *ngIf="!maximizeAbtMe">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+                  <ng-container *ngIf="maximizeAbtMe">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+            </button>
+            <button class="close-file" (click)="closeFile('aboutMe')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></button>
         </div>
         <div id="about-me-container">
             <app-about-me-window></app-about-me-window>
@@ -41,9 +57,25 @@
     <div @openCloseFile cdkDrag [ngClass]="{'file':true, 'full-screen': maximizeProjects}" id="projects-file" *ngIf="isProjectsOpen$ | async" (mousedown)="changeCurrentFile('projects')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('projects') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Projects</p>
-            <button class="minimize-file" (click)="minimizeTab('projects')"><i class="fa-solid fa-minus"></i></button>
-            <button class="resize-file" (click)="resizeFile('projects')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeProjects, 'fa-window-restore': maximizeProjects}"></i></button>
-            <button class="close-file" (click)="closeFile('projects')"><i class="fa-solid fa-x"></i></button>
+            <button class="minimize-file" (click)="minimizeTab('projects')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg></button>
+            <button class="resize-file" (click)="resizeFile('projects')">
+                <ng-container *ngIf="!maximizeProjects">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+                  <ng-container *ngIf="maximizeProjects">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+            </button>
+            <button class="close-file" (click)="closeFile('projects')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></button>
         </div>
         <div id="projects-container">
             <app-projects-window></app-projects-window>
@@ -53,9 +85,25 @@
     <div @openCloseFile cdkDrag [ngClass]="{'file':true, 'full-screen': maximizeContacts}" id="contacts-file" *ngIf="isContactsOpen$ | async" (mousedown)="changeCurrentFile('contacts')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('contacts') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Contacts</p>
-            <button class="minimize-file" (click)="minimizeTab('contacts')"><i class="fa-solid fa-minus"></i></button>
-            <button class="resize-file" (click)="resizeFile('contacts')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeContacts, 'fa-window-restore': maximizeContacts}"></i></button>
-            <button class="close-file" (click)="closeFile('contacts')"><i class="fa-solid fa-x"></i></button>
+            <button class="minimize-file" (click)="minimizeTab('contacts')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg></button>
+            <button class="resize-file" (click)="resizeFile('contacts')">
+                <ng-container *ngIf="!maximizeContacts">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+                  <ng-container *ngIf="maximizeContacts">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+            </button>
+            <button class="close-file" (click)="closeFile('contacts')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></button>
         </div>
         <div id="contacts-container">
             <app-contacts-window></app-contacts-window>
@@ -65,9 +113,25 @@
     <div @openCloseFile cdkDrag [ngClass]="{'file':true, 'full-screen': maximizeResume}" id="resume-file" *ngIf="isResumeOpen$ | async" (mousedown)="changeCurrentFile('resume')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('resume') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Resume</p>
-            <button class="minimize-file" (click)="minimizeTab('resume')"><i class="fa-solid fa-minus"></i></button>
-            <button class="resize-file" (click)="resizeFile('resume')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeResume, 'fa-window-restore': maximizeResume}"></i></button>
-            <button class="close-file" (click)="closeFile('resume')"><i class="fa-solid fa-x"></i></button>
+            <button class="minimize-file" (click)="minimizeTab('resume')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg></button>
+            <button class="resize-file" (click)="resizeFile('resume')">
+                <ng-container *ngIf="!maximizeResume">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+                  <ng-container *ngIf="maximizeResume">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+            </button>
+            <button class="close-file" (click)="closeFile('resume')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></button>
         </div>
         <div id="resume-container">
             <app-resume-window></app-resume-window>
@@ -77,9 +141,25 @@
     <div @openCloseFile cdkDrag [ngClass]="{'file':true, 'full-screen': maximizeHobbies}" id="hobbies-file" *ngIf="isHobbiesOpen$ | async" (mousedown)="changeCurrentFile('hobbies')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('hobbies') ?? 1}">
         <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
             <p class="title">Hobbies</p>
-            <button class="minimize-file" (click)="minimizeTab('hobbies')"><i class="fa-solid fa-minus"></i></button>
-            <button class="resize-file" (click)="resizeFile('hobbies')"><i [ngClass]="{'fa-solid': true, 'fa-window-maximize': !maximizeHobbies, 'fa-window-restore': maximizeHobbies}"></i></button>
-            <button class="close-file" (click)="closeFile('hobbies')"><i class="fa-solid fa-x"></i></button>
+            <button class="minimize-file" (click)="minimizeTab('hobbies')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg></button>
+            <button class="resize-file" (click)="resizeFile('hobbies')">
+                <ng-container *ngIf="!maximizeHobbies">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+                  <ng-container *ngIf="maximizeHobbies">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                    </svg>
+                  </ng-container>
+            </button>
+            <button class="close-file" (click)="closeFile('hobbies')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></button>
         </div>
         <div id="hobbies-container">
             <app-hobbies-window></app-hobbies-window>
