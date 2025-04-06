@@ -151,21 +151,28 @@
 .slideshow-button{
     position:absolute;
     width:50px;
-    height:calc(100% - 10px);   
+    height:100%;   
     align-self: center;
     background-color: transparent;
     border: none;
     font-size: 25px;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.327);
+    z-index: 2;
+    color:rgb(255, 255, 255);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    
 }
 .slideshow-button:hover{
-    background-color: rgba(0, 0, 0, 0.389);
+    background-color: rgba(0, 0, 0, 0.502);
 }
 .slideshow-button-left{
-    left: -50px
+    border-radius: 10px 0px 0px 10px;
+    left: 0px
 }
 .slideshow-button-right{
-    right: -50px
+    border-radius: 0px 10px 10px 0px;
+    right: 0px
 }
 
 

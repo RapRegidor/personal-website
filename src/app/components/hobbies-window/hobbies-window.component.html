@@ -7,13 +7,13 @@
     <div id="content-container" >
         <div id="hobby-one" *ngIf="(currentHobbyTab$ | async) === 'hobbyOne'">
             <div class="outer-slideshow">
-                <button class="slideshow-button slideshow-button-left" (click)="prevSwimImage()"><i class="fa-solid fa-less-than"></i></button>
+                <button class="slideshow-button slideshow-button-left" (click)="prevSwimImage()"><i class="fas fa-chevron-left"></i></button>
                 <div class="slideshow-container">
                     <div class="slideshow-inner" [style.transform]="'translateX(-' + currentSwimIndex * 100 + '%)'">
                       <img *ngFor="let img of swimImages" [src]="img" class="images">
                     </div>
                   </div>
-                <button class="slideshow-button slideshow-button-right" (click)="nextSwimImage()"><i class="fa-solid fa-greater-than"></i></button>
+                <button class="slideshow-button slideshow-button-right" (click)="nextSwimImage()"><i class="fas fa-chevron-right"></i></button>
             </div>
         
             <div class="description-container">
@@ -24,14 +24,14 @@
         
         <div id="hobby-two" *ngIf="(currentHobbyTab$ | async) === 'hobbyTwo'">
             <div class="outer-slideshow">
-                <button class="slideshow-button slideshow-button-left" (click)="prevDrawingImage()"><i class="fa-solid fa-less-than"></i></button>
+                <button class="slideshow-button slideshow-button-left" (click)="prevDrawingImage()"><i class="fas fa-chevron-left"></i></button>
                 
                 <div class="slideshow-container">
                     <div class="slideshow-inner" [style.transform]="'translateX(-' + currentDrawingIndex * 100 + '%)'">
                         <img *ngFor="let img of drawingImages" [src]="img" class="images">
                     </div>
                 </div>
-                <button class="slideshow-button slideshow-button-right" (click)="nextDrawingImage()"><i class="fa-solid fa-greater-than"></i></button>
+                <button class="slideshow-button slideshow-button-right" (click)="nextDrawingImage()"><i class="fas fa-chevron-right"></i></button>
             </div>
             <div class="description-container">
                 <p class="name">Drawing</p>
@@ -42,14 +42,14 @@
         
         <div id="hobby-three" *ngIf="(currentHobbyTab$ | async) === 'hobbyThree'">
             <div class="outer-slideshow">
-                <button class="slideshow-button slideshow-button-left" (click)="prevHCImage()"><i class="fa-solid fa-less-than"></i></button>
+                <button class="slideshow-button slideshow-button-left" (click)="prevHCImage()"><i class="fas fa-chevron-left"></i></button>
                 <div class="slideshow-container">
                     <div class="slideshow-inner" [style.transform]="'translateX(-' + currentHCIndex * 100 + '%)'">
                         <img *ngFor="let img of hikingCampingImages" [src]="img" class="images">
                 
                     </div>
                 </div>
-                <button class="slideshow-button slideshow-button-right" (click)="nextHCImage()"><i class="fa-solid fa-greater-than"></i></button>
+                <button class="slideshow-button slideshow-button-right" (click)="nextHCImage()"><i class="fas fa-chevron-right"></i></button>
             </div>
             <div class="description-container">
                 <p class="name">Hiking & Camping</p>
