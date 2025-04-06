@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { OpeningFilesService } from '../../services/opening-files.service';
 
 @Component({
@@ -14,5 +14,13 @@ export class AboutMeWindowComponent {
   }
   changeCurrentFile(file: string){
     this.fileService.changeCurrentFile(file);
+  }
+  @ViewChild('container') container!: ElementRef;
+  @ViewChild('aboutMeContainer') destination!: ElementRef;
+  scrollDown(){
+    this.container.nativeElement.scroll({
+      top: this.destination.nativeElement.offsetTop - 50,
+      behavior: 'smooth'
+    })
   }
 }

@@ -1,17 +1,20 @@
-<div class="content" id="about-me-content">
-    <div id="banner">
-        <div class="content-wrapper">
-            <div class="banner-components" id="image-container">
-                <img src="/myphoto.png" id="my-photo">
-            </div>
-            <div class="banner-components" id="text-container">
-                <p id="name">Rap Regidor<p>
-                <p id="description">Currently a Junior in Stony Brook University majoring in Computer Science</p>
+<div class="content" id="about-me-content" #container>
+    <div id="banner-wrapper">
+        <div id="banner">
+            <div class="content-wrapper">
+                <div class="banner-components" id="image-container">
+                    <img src="/myphoto.png" id="my-photo">
+                </div>
+                <div class="banner-components" id="text-container">
+                    <p id="name">Rap Regidor<p>
+                    <p id="description">Currently a Junior in Stony Brook University majoring in Computer Science</p>
+                    <button id="down" (click)="scrollDown()">Read more</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="about-me-container">
+    <div id="about-me-container" #aboutMeContainer>
         <div class="content-wrapper">
             <div id="detailed-description">
                 <p class="title">Welcome!</p>
