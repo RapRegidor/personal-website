@@ -17,6 +17,7 @@
     background-color: #1A1F16;
     max-width: 1200px;
     width: 90%;
+    height: 450px;
     display:flex;
     flex-direction: row;
     border-radius: 25px;
@@ -26,7 +27,7 @@
     display:flex;
     max-width: 1200px;
     width: 100%;
-    margin: 0 auto;
+    height:100%;
     position:relative;
 }
 .banner-components{
@@ -39,10 +40,10 @@
     align-items: center;
 }
 #my-photo{
-    max-width: 80%; 
-    max-height: 80%;
+    object-fit: cover;
+    height: 300px;
+    width: 300px;
     border-radius: 10px;
-    margin-right:-50px;
 }
 
 #text-container{
@@ -93,6 +94,7 @@
     flex-direction: row;
     width:100%;
     align-items: center;
+    justify-content: center;
     margin-top:50px;
     margin-bottom:50px;
 }
