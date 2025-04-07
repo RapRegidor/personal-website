@@ -1,5 +1,5 @@
 .container{
-    background-image: url(/windows-image.png);
+    background-image: url(/windows-image.jpg);
     background-repeat:no-repeat;
     background-size:cover;
     background-position: center;
@@ -178,7 +178,7 @@ figure:hover{
 }
 
 .dark-background{
-    background-image: url(/background.png);
+    background-image: url(/background.jpg);
 }
 .dark-bar{
     background-color: rgb(245, 137, 97);
