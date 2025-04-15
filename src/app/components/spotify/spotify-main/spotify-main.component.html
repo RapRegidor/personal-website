@@ -30,11 +30,20 @@
     </div>
     <div id="playlists">
         <div class="cards">
-            <div class="images">
-                <ng-container *ngIf="userPlaylists$ | async as playlists">
-                    <img [src]="playlists?.[0]?.image">
-                </ng-container>
-            </div>
+            <ng-container *ngIf="userPlaylists">
+                <div class="content">
+                    <div class="images">
+                        <div class="image">
+                            <img [src]="userPlaylists[0].image" />
+                        </div>
+                    </div>
+                    <div class="playlistName" #playlistNameContainer>
+                        <h1 #playlistName>
+                            {{userPlaylists[0].name | slice:0:25 }}{{userPlaylists[0].name.length > 25 ? '...' : ''}}
+                        </h1>
+                    </div>
+                </div>
+            </ng-container>
         </div>
         <div class="cards2">
             <!--each playlist-->

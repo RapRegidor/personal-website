@@ -63,8 +63,9 @@
     overflow: hidden;
     position:relative
 }
+/* n eeds to bne fore loop and depending on the active one (must be another class) change background-color */
 .cards{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(71, 100, 187);
     width:80%;
     min-height:150px;
     height:25%;
@@ -76,15 +77,35 @@
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
     z-index: 99;
     filter:brightness(100%);
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+}
+.content{
+    height:100%;
+    width:90%;
+
+    display: flex;
+    flex-direction: row;
+}
+.playlistName{
+    width:60%;
+    display: flex;
+    align-items: center;
+}
+.playlistName h1{
+    font-family: 'MedievalSharp', cursive;
+    font-size: 36px;
+    margin-left: 10px;
+    color:rgb(121, 233, 233);
 }
 .images{
-    height:100px;
-    width:100px;
-    position:relative;
-    margin: 0 auto;
+    height:100%;
+    min-width:155px;
+    width:40%;
+    max-width: 220px;
+    display: flex;
+    align-items: center;
 }
 
 @property --angle{
@@ -93,7 +114,7 @@
     inherits: false;
 }
 /* this needs to be the active album */
-.images::after, .images::before{
+.image::after, .image::before{
     --angle:0deg;
     content: '';
     position:absolute;
@@ -105,9 +126,27 @@
     z-index:-1;
     padding:5px;
     /* background-image:conic-gradient(rgb(0, 234, 255), rgb(0, 21, 255),rgb(0, 234, 255)); */
-    background-image: conic-gradient(from var(--angle), transparent 70%, rgb(0, 187, 204), rgb(0, 160, 174));
-    animation: 3s spin linear infinite;
+    background-image: conic-gradient(from var(--angle), transparent 50%, rgb(0, 187, 204), rgb(0, 65, 71));
+    animation: 2s spin linear infinite;
+    
 }
+.image::before{
+    filter:blur(1.5rem);
+    opacity:0.5;
+}
+.image{
+    aspect-ratio: 1/1;
+    height:80%;
+    position:relative;
+    margin: 0 auto;
+}
+
+.image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 /* animation needs to be a separate class so I can toggle it */
 @keyframes spin{
     from{
@@ -118,17 +157,9 @@
     }
 }
 
-.images::before{
-    filter:blur(1.5rem);
-    opacity:0.5;
-}
-.images img{
-    height:100%;
-    width:100%;
-    object-fit: cover;
-}
+
 .cards2{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(71, 100, 187);
     width:80%;
     min-height:150px;
     height:25%;
@@ -139,10 +170,10 @@
     rotate: -20deg;
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
     z-index: 98;
-    filter:brightness(80%)
+    filter:brightness(75%)
 }
 .cards3{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(71, 100, 187);
     width:80%;
     min-height:150px;
     height:25%;

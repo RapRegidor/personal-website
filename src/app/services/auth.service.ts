@@ -6,23 +6,42 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AuthService {
   private user = new BehaviorSubject<any | null>(null);
-  private checked = new BehaviorSubject<boolean>(false);
+  private playlists = new BehaviorSubject<any | null>(null);
+  private checkedUser = new BehaviorSubject<boolean>(false);
+  private checkedPlaylists = new BehaviorSubject<boolean>(false);
   currentUser$ = this.user.asObservable();
-  checked$ = this.checked.asObservable()
+  playlists$ = this.playlists.asObservable();
+  checkedUser$ = this.checkedUser.asObservable();
+  checkedPlaylists$ = this.checkedPlaylists.asObservable();
   constructor(private http: HttpClient) { 
 
   }
+  getPlaylists(){
+    this.http.get<{ playlists?: any }>('http://localhost:3000/userPlaylists', {
+      withCredentials: true,
+    }).subscribe({
+      next: res => {
+        this.playlists.next(res.playlists ?? null);
+        this.checkedPlaylists.next(true);
+      },
+      error: () => {
+        this.playlists.next(null);
+        this.checkedPlaylists.next(false);
+      }
+    });
+  }
+
   checkSession(){
     this.http.get<{ user?: any }>('http://localhost:3000/session', {
       withCredentials: true,
     }).subscribe({
       next: res => {
         this.user.next(res.user ?? null);
-        this.checked.next(true);
+        this.checkedUser.next(true);
       },
       error: () => {
         this.user.next(null);
-        this.checked.next(true);
+        this.checkedUser.next(true);
       }
     });
   }

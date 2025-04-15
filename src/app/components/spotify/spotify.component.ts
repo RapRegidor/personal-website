@@ -13,11 +13,16 @@ import { Observable } from 'rxjs';
 })
 export class SpotifyComponent{
   user$!: Observable<any | null>;
-  checked$!: Observable<boolean>;
+  playlists$!: Observable<any | null>;
+  checkedUser$!: Observable<boolean>;
+  checkedPlaylists$!: Observable<boolean>;
   constructor(private auth: AuthService){
     this.auth.checkSession();
+    this.auth.getPlaylists();
     this.user$ = this.auth.currentUser$
-    this.checked$ = this.auth.checked$;
+    this.playlists$ = this.auth.playlists$
+    this.checkedUser$ = this.auth.checkedUser$;
+    this.checkedPlaylists$ = this.auth.checkedPlaylists$;
   }
   @ViewChild('container') container!: ElementRef;
   // @ViewChild('circle') circle!: ElementRef;

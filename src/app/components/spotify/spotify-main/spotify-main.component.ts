@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
@@ -11,11 +11,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SpotifyMainComponent implements AfterViewInit {
   @Input() user: any;
+  @Input() userPlaylists: any;
   
-  constructor(private el: ElementRef, private http: HttpClient) {
+  constructor(private el: ElementRef, private http: HttpClient, private cdr: ChangeDetectorRef) {
 
   }
-
+  
   // @HostListener('wheel', ['$event'])
   // @HostListener('keydown', ['$event'])
   // onMousewheel(event: KeyboardEvent | WheelEvent) {
@@ -25,18 +26,17 @@ export class SpotifyMainComponent implements AfterViewInit {
   //     console.log('Wheel delta:', event.deltaY);
   //   }
   // }
-  private userPlaylists = new BehaviorSubject<any | null>(null);
-  userPlaylists$ = this.userPlaylists.asObservable();
+  @ViewChild('playlistNameContainer') playlistNameContainer!: ElementRef;
+  @ViewChild('playlistName') playlistName!: ElementRef;
+
   ngAfterViewInit(){
-    this.http.get<{ playlists?: any }>('http://localhost:3000/userPlaylists', {
-      withCredentials: true,
-    }).subscribe({
-      next: res => {
-        this.userPlaylists.next(res.playlists ?? null);
-      },
-      error: () => {
-        this.userPlaylists.next(null);
-      }
+    const resizeObserver = new ResizeObserver(() => {
+      const width = this.playlistNameContainer.nativeElement.offsetWidth;
+      const playlistNameFontSize = Math.max(36, Math.min(width * 0.15, 56));
+      this.playlistName.nativeElement.style.fontSize = `${playlistNameFontSize}px`;
     });
+    resizeObserver.observe(this.playlistNameContainer.nativeElement);
   }
+  
+
 }
