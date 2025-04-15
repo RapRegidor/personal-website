@@ -1,0 +1,157 @@
+.container{
+    width:100%;
+    height:100%;
+    display: flex;
+}
+#profile{
+    width:50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+
+#profile-container{
+    background-color: rgba(0, 0, 0, 0.28);
+    width: 90%;
+    max-width: 800px;
+    height: 80%;
+    
+    border-radius: 25px;
+    box-shadow: 0px 0px 20px rgba(127, 156, 171, 0.204);
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+}
+#pfp{
+    display: flex;
+    align-items:flex-end;
+    padding-left:80px;
+    gap:40px;
+    height:30%;
+}
+#pfp img{
+    border-radius: 50%;
+    height:100px;
+}
+#pfp h1{
+    display: flex;
+    color:rgb(206, 254, 254);
+}
+#currently-playing-container{
+    height:70%;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+#currently-playing{
+    width:80%;
+    height: 250px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.355);
+    display: flex;
+}
+#playlists{
+    width:50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    position:relative
+}
+.cards{
+    background-color: rgb(255, 255, 255);
+    width:80%;
+    min-height:150px;
+    height:25%;
+    right:-40px;
+    border-radius: 10px 0px 0px 10px;
+    position:absolute;
+    transform-origin: calc(100% + 200px) 50%;
+    rotate: 0deg;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    z-index: 99;
+    filter:brightness(100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.images{
+    height:100px;
+    width:100px;
+    position:relative;
+    margin: 0 auto;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+/* this needs to be the active album */
+.images::after, .images::before{
+    --angle:0deg;
+    content: '';
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:50%;
+    left:50%;
+    translate: -50% -50%;
+    z-index:-1;
+    padding:5px;
+    /* background-image:conic-gradient(rgb(0, 234, 255), rgb(0, 21, 255),rgb(0, 234, 255)); */
+    background-image: conic-gradient(from var(--angle), transparent 70%, rgb(0, 187, 204), rgb(0, 160, 174));
+    animation: 3s spin linear infinite;
+}
+/* animation needs to be a separate class so I can toggle it */
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
+.images::before{
+    filter:blur(1.5rem);
+    opacity:0.5;
+}
+.images img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+.cards2{
+    background-color: rgb(255, 255, 255);
+    width:80%;
+    min-height:150px;
+    height:25%;
+    right:-40px;
+    border-radius: 10px 0px 0px 10px;
+    position:absolute;
+    transform-origin: calc(100% + 200px) 50%;
+    rotate: -20deg;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    z-index: 98;
+    filter:brightness(80%)
+}
+.cards3{
+    background-color: rgb(255, 255, 255);
+    width:80%;
+    min-height:150px;
+    height:25%;
+    right:-40px;
+    border-radius: 10px 0px 0px 10px;
+    position:absolute;
+    transform-origin: calc(100% + 200px) 50%;
+    rotate: -40deg;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    z-index: 97;
+    filter:brightness(60%)
+}

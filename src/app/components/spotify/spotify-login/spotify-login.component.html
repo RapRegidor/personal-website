@@ -1,0 +1,26 @@
+<div class="container" #container>
+    <div id="brand-wrapper">
+        <img src="/spotify.png" id="spotify-image" #image>
+        <h1 class="flicker" #brand>SPOTIFY</h1>
+        <audio loop #audio>
+            <source src="/neon-light.mp3" type="audio/mpeg" >
+        </audio>
+    </div>
+    <div class="button-container" (click)="login()">
+        <button id="button" #button>Sign In</button>
+    </div>
+    <a id="sign-up" href="https://www.spotify.com/us/signup" target="_blank">Sign Up in Spotify 
+            <svg xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M7 17L17 7" />
+            <path d="M7 7h10v10" />
+        </svg>
+    </a>
+</div>

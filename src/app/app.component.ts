@@ -11,4 +11,5 @@ import { MainWindowComponent } from "./components/main-window/main-window.compon
 })
 export class AppComponent {
   title = 'personal-website';
+
 }

@@ -23,11 +23,18 @@
                     <figcaption>Contacts</figcaption>
                 </figure>
             </div>
-            <div class="block">
-                <!-- Login first! -->
-                <h1>SPOTIFY</h1>
+            <div class="block" id="spotify-block" (click)="openFile('spotify'); changeCurrentFile('spotify')">
+                <div id="spotify-container">
+                    <!-- Login first! -->
+                    <img src="spotify.png" alt="Spotify Image" id="spotify-image">
+                    <div id="spotify-text">
+                        <h1>SPOTIFY
+                            <div id="span-text"><span>Sign in with Spotify<br />Search, Click, and Play.<br />Finally, vibe with the music!</span></div>
+                        </h1>
+                    </div>
+                </div>
             </div>
-            <div id="squares" class="block">
+            <div id="squares">
                 <div class="square-block">
                     <h1>PAINT</h1>
                 </div>
@@ -36,7 +43,6 @@
                 </div>
             </div>
             <div class="block">
-                <!-- might jsut do a slideshow of what the user created and only appears if there already -->
                 <h1>IDK YET</h1>
             </div>
         </div>

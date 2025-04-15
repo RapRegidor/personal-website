@@ -86,13 +86,23 @@
     justify-content: center;
     border-radius:0px 0px 10px 10px;
 }
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
 
-
-
-
+@keyframes fadeIn {
+    from {
+        filter: blur(0.2rem);
+        opacity: 0;
+    }
+    to {
+        filter: blur(0rem);
+        opacity: 1;
+    }
+}
 .description-container{
     margin: 30px 15px 30px 15px;
-    max-width:900px;
+    max-width:1100px;
     width:70%;
     background-color: white;
     border-radius: 10px;
@@ -109,7 +119,6 @@
     text-align: center;
 }
 .description{
-    /* text-indent:20px; */
     font-family: 'Merriweather', serif;
     font-size: 16px;
     line-height: 1.5;
@@ -127,7 +136,8 @@
     align-items: center;
     justify-content: center;
     margin-top: 30px;
-    max-width: 500px;
+    max-width: 40%;
+    aspect-ratio: 16 / 9;
 }
 .slideshow-container{
     border-radius: 10px;
@@ -135,6 +145,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 100%;
     overflow-x: hidden;
 }
   
@@ -142,13 +153,13 @@
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
+    height: 100%;
 }
 
 .images {
     width: 100%;
-    height: 300px;
     flex-shrink:0;
-    object-fit: cover;
+    object-fit:cover;
 }
 
 .image4{

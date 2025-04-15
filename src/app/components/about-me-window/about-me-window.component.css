@@ -5,6 +5,7 @@
     overflow: auto;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 #banner-wrapper{
     display: flex;
@@ -13,23 +14,30 @@
     align-items: center;
     justify-content: center;
 }
+
 #banner{
     background-color: #1A1F16;
-    max-width: 1200px;
     width: 90%;
-    height: 450px;
+    height: 70%;
     display:flex;
     flex-direction: row;
     border-radius: 25px;
-    box-shadow: 0px 5px 10px black;
+    box-shadow: 0px 5px 10px rgb(127, 156, 171);
 }
+.dark-shadow{
+    box-shadow: 0px 5px 10px rgba(206, 106, 44, 0.751) !important;
+}
+
 .content-wrapper{
     display:flex;
-    max-width: 1200px;
     width: 100%;
     height:100%;
     position:relative;
 }
+.max{
+    max-width:1200px;
+}
+
 .banner-components{
     height:100%;
     width:50%;
@@ -41,8 +49,8 @@
 }
 #my-photo{
     object-fit: cover;
-    height: 300px;
-    width: 300px;
+    height: 70%;
+    width: 70%;
     border-radius: 10px;
 }
 
@@ -57,9 +65,8 @@
 #name{
     max-width:60%;
     font-weight:900;
-    font-size: min(3vw, 50px);
-    font-size: max(3vw, 35px);
-    letter-spacing: 3px;
+    /* font-size: 4vw; */
+    letter-spacing: 5px;
     
     margin:0;
     font-family: 'Black Han Sans', sans-serif;
@@ -67,26 +74,29 @@
 
 #description{
     max-width:60%;
-    margin-top:-20px;
     margin-left: 0px;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.5;
-    font-size: 18px;
+    /* font-size: 16px; */
 }
 
 #down{
     width:175px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
+    /* font-size: 16px; */
     color: #EAE0D5;
     background-color: #1A1F16;
     border: #EAE0D5 solid 1px;
-    padding:7px;
+    padding:8px;
 }
 #down:hover{
     color: #a2c4e9;
     border: #a2c4e9 solid 1px;
     cursor: pointer;
+}
+.dark-down:hover{
+    color: #ffaa3c !important; 
+    border: #ffaa3c solid 1px !important;
 }
 
 #about-me-container{
@@ -98,9 +108,34 @@
     margin-top:50px;
     margin-bottom:50px;
 }
-#detailed-description{
+#welcome-container{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+    margin-top:50px;
+    margin-bottom:50px;
+    
+}
+#welcome{
+    align-items: center;
+    justify-content: center;
+}
+
+.detailed-description{
     width:70%;
     padding: 0px 50px 0px 100px;
+}
+#welcome-description{
+    background-color: #ccd2d9;
+    border-radius: 25px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding-bottom:15px;
+    transition: 0.75s;
+}
+.dark-box{
+    background-color: #f69d37 !important;
 }
 #secondAbtMeImgContainer{
     width:30%;
@@ -111,9 +146,10 @@
     width:100%;
     object-fit: cover;
     border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3); 
 }
 .title{
-    font-family:'Black Han Sans';
+    font-family: 'Black Han Sans', sans-serif;
     font-weight:500;
     font-size: 30px;
     margin-top:40px;
@@ -123,11 +159,11 @@
     text-indent:20px;
     font-family: 'Merriweather', serif;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 2.5;
 }
 
 #experience-container{
-    background-color: #E8E6E6;
+    background-color: #ccd2d9;
     max-width: 1200px;
     width: 90%;
     align-self: center;
@@ -138,14 +174,13 @@
     display:flex;
     flex-direction: column;
     border-radius: 25px;
-    box-shadow: 0px 5px 10px black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 #list{
     width:90%;
     margin-top:30px;
     margin-bottom:30px;
-    /* background-color: white; */
     display:flex;
     flex-direction: column;
 }
@@ -183,6 +218,7 @@ ul{
 }
 .experience-details{
     margin-left:30px;
+    line-height: 2.5;
 }
 li{
     padding-bottom:10px;
@@ -245,4 +281,24 @@ strong{
 .reference:hover svg:first-of-type{
     transform: translate(5px, -5px);
     transition: transform ease-in 0.1s
+}
+
+.before-right{
+    opacity: 0;
+    transform: translateX(100px);
+    transition: 0.75s;
+}
+.before-left{
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: 0.75s;
+}
+.before-up{
+    opacity: 0;
+    transform: translateY(100px);
+    transition: 0.75s;
+}
+.animate{
+    transform: translate(0);
+    opacity: 1;
 }

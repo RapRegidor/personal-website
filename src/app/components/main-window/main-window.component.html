@@ -35,15 +35,15 @@
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
                       <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
-                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
                   <ng-container *ngIf="maximizeAbtMe">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" stroke="black" stroke-width="2" />
                       <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
-                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
             </button>
@@ -63,15 +63,15 @@
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
                       <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
-                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
                   <ng-container *ngIf="maximizeProjects">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" stroke="black" stroke-width="2" />
                       <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
-                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
             </button>
@@ -91,15 +91,15 @@
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
                       <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
-                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
                   <ng-container *ngIf="maximizeContacts">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" stroke="black" stroke-width="2" />
                       <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
-                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
             </button>
@@ -119,15 +119,15 @@
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
                       <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
-                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
                   <ng-container *ngIf="maximizeResume">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" stroke="black" stroke-width="2" />
                       <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
-                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
             </button>
@@ -147,15 +147,15 @@
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
                       <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
-                      <rect x="7" y="7" width="10" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
                   <ng-container *ngIf="maximizeHobbies">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <rect x="8" y="4" width="12" height="12" rx="1.5" fill="rgb(176, 230, 253)" stroke="black" stroke-width="2" />
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" stroke="black" stroke-width="2" />
                       <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
-                      <rect x="7" y="9" width="8" height="2" rx="1" fill="rgb(176, 230, 253)" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
                     </svg>
                   </ng-container>
             </button>
@@ -163,6 +163,34 @@
         </div>
         <div id="hobbies-container">
             <app-hobbies-window></app-hobbies-window>
+        </div>
+    </div>
+
+    <div @openCloseFile cdkDrag [ngClass]="{'file':true, 'full-screen': maximizeSpotify}" id="spotify-file" *ngIf="isSpotifyOpen$ | async" (mousedown)="changeCurrentFile('spotify')" [ngStyle]="{'z-index': (currentStack$ | async)?.indexOf('spotify') ?? 1}">
+        <div cdkDragHandle class="top-bar" [ngClass]="{'dark-bar': isDarkMode$ | async}">
+            <p class="title">Spotify</p>
+            <button class="minimize-file" (click)="minimizeTab('spotify')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /></svg></button>
+            <button class="resize-file" (click)="resizeFile('spotify')">
+                <ng-container *ngIf="!maximizeSpotify">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="5" y="5" width="14" height="14" rx="1.5" fill="black" />
+                      <rect x="7" y="7" width="10" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
+                    </svg>
+                  </ng-container>
+                  <ng-container *ngIf="maximizeSpotify">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <rect x="8" y="4" width="12" height="12" rx="1.5" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" stroke="black" stroke-width="2" />
+                      <rect x="5" y="7" width="12" height="12" rx="1.5" fill="black" />
+                      <rect x="7" y="9" width="8" height="2" rx="1" [attr.fill]="(isDarkMode$ | async) ? 'rgb(245, 137, 97)' : 'rgb(176, 230, 253)'" />
+                    </svg>
+                  </ng-container>
+            </button>
+            <button class="close-file" (click)="closeFile('spotify')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg></button>
+        </div>
+        <div id="spotify-container">
+            <app-spotify></app-spotify>
         </div>
     </div>
 </div> 

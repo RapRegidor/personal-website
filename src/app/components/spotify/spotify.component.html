@@ -1,0 +1,12 @@
+<div class="container" #container>
+    <div id="content">
+        <ng-container *ngIf="checked$ | async">
+            <div id="login-container" *ngIf="!(user$ | async)">
+                <app-spotify-login id="login"></app-spotify-login>
+            </div>  
+            <div id="main-container" *ngIf="user$ | async  as user">
+                <app-spotify-main id="main" [user]="user"></app-spotify-main>
+            </div>
+        </ng-container>
+    </div>
+</div>

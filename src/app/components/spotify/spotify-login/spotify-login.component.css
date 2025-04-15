@@ -1,0 +1,93 @@
+.container{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#brand-wrapper{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:25px;
+}
+#brand-wrapper h1{
+    color:white;
+    font-family: 'MedievalSharp', cursive;
+    text-shadow:
+    0 0 1px #fff,
+    0 0 3px #0ff,
+    0 0 5px #0ff,
+    0 0 8px #0ff,
+    0 0 15px #0ff,
+    0 0 25px #0ff;
+    font-size: 36px;
+    filter:brightness(0.85);
+}
+#spotify-image{
+    width:60px;
+    height:60px;
+}
+
+.button-container{
+    width:85%;
+    height:50px;
+    padding: 25px 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+#sign-up{
+    color:rgb(227, 226, 226);
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+#sign-up:hover{
+    color:rgb(138, 138, 138);
+}
+#sign-up svg {
+    vertical-align:bottom;
+    margin-right: 2px;
+    transition: transform ease-out 0.1s;
+}
+#sign-up:hover svg{
+    transform: translate(3px, -3px);
+    transition: transform ease-in 0.1s
+}
+#button{
+    background-color: #20ef68;
+    color: #00362b;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    width:90%;
+    border: none;
+    padding:12.5px 20px 12.5px 20px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 50px;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+@keyframes flicker {
+    0%, 21%, 23%, 34%, 36%, 74%, 76%, 100% {
+        opacity: 1;
+    }
+    22%, 35%, 75% {
+        opacity: 0.4;
+    }
+}
+.flicker {
+    animation: flicker 1.5s infinite alternate;
+}
+#button:hover{
+    background-color: #1db954;
+    box-shadow: 0 0 10px #1db954b3;
+    cursor: pointer;
+}
+
+

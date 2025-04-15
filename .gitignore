@@ -47,3 +47,6 @@ src/environments/environment.ts
 .firebase/
 .firebaserc
 firebase.json
+
+serverNode.JS
+rapregidor-2aa1f-firebase-adminsdk-fbsvc-3b8453ad1c.json

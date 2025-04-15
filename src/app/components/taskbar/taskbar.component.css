@@ -134,8 +134,13 @@
     height:50px;
     margin-top: -5px;
 }
-
+img[src ^= "/spotify.png"]{
+    margin-top: 0px;
+    height: 30px;
+    width: 30px;
+}
 .file-buttons{
+    width:50px;
     height:100%;
     background-color:transparent;
     border:none;
@@ -148,7 +153,6 @@
 
 .file-buttons:hover{
     background-color: rgba(200, 199, 199, 0.259);
-    
 }
 
 .active-file{

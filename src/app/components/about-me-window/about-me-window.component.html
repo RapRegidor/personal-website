@@ -1,39 +1,44 @@
 <div class="content" id="about-me-content" #container>
-    <div id="banner-wrapper">
-        <div id="banner">
+    <div id="banner-wrapper" #bannerWrapper>
+        <div id="banner" [ngClass]="{'dark-shadow': isDarkMode$ | async}" #banner>
             <div class="content-wrapper">
                 <div class="banner-components" id="image-container">
                     <img src="/myphoto.jpg" id="my-photo">
                 </div>
                 <div class="banner-components" id="text-container">
-                    <p id="name">Rap Regidor<p>
-                    <p id="description">Currently a Junior in Stony Brook University majoring in Computer Science</p>
-                    <button id="down" (click)="scrollDown()">More about me</button>
+                    <p id="name" #name>Rap Regidor</p>
+                    <p id="description" #description>Currently a Junior in Stony Brook University majoring in Computer Science</p>
+                    <button id="down" [ngClass]="{'dark-down': isDarkMode$ | async}" (click)="scrollDown()" #button>Learn more</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <div id="about-me-container" #aboutMeContainer>
-        <div class="content-wrapper">
-            <div id="detailed-description">
+    <div id="welcome-container" #welcomeContainer  >
+        <div class="content-wrapper max before-right animate"  id="welcome" #animated>
+            <div class="detailed-description" [ngClass]="{'dark-box': isDarkMode$ | async}" id="welcome-description">
                 <p class="title">Welcome!</p>
                 <p class="story">Hi, as you may have already read, I'm Rap Regidor. I tried my best to "simulate" a computer desktop, trying to mix both my creativity and
                     my technical skills. Though it is still a working progress, I hope you enjoy exploring it! Here, you'll be able to view my 
                     resume, academic projects, personal hobbies, and ways to contact me.
                 </p>
+            </div>
+        </div>
+    </div>
+    <div id="about-me-container"  >
+        <div class="content-wrapper max" id="about-description" >
+            <div class="detailed-description before-left animate"  #animated>
                 <p class="title">About Me.</p>
                 <p class="story">My journey to Computer Science started in high school when I had a mandatory programming class. In this class, I didn’t write with an actual programming language yet; instead, I played with blocks. All I had to do was build upon those blocks by attaching them to each other to create a program. It was like legos to me-- fun and creative. I had the freedom to make whatever I wanted, and that’s what I love about programming.</p>
                 <p class="story">I then took more classes related to programming. My passion for coding really took off when I was given yet another chance of freedom to make whatever I wanted for my final project. I built my own game, and I was really proud of myself in the end. Throughout that process, I was learning more than I needed, improving my project beyond what was taught in the curriculum, and was genuinely satisfied seeing the result. This very experience helped me decide to pursue Computer Science in college.</p>
                 <p class="story">Now, I continue to explore new areas of coding, whether it's learning frontend, backend, cybersecurity or anything else that piques my interest. I will continue my journey to grow and improve my skills even further.</p>
             </div>
-            <div id="secondAbtMeImgContainer">
+            <div class="before-right animate" id="secondAbtMeImgContainer" #animated>
                 <img src="secondAbtMe.jpg" id="secondAbtMeImg">
             </div>
         </div>
     </div>
     
-    <div id="experience-container">
+    <div id="experience-container" class="before-up animate" [ngClass]="{'dark-box': isDarkMode$ | async}" #animated>
         <button id="resume-link" (click)="$event.stopPropagation(); openFile('resume'); changeCurrentFile('resume')"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-file-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 2l.117 .007a1 1 0 0 1 .876 .876l.007 .117v4l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h4l.117 .007a1 1 0 0 1 .876 .876l.007 .117v9a3 3 0 0 1 -2.824 2.995l-.176 .005h-10a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-14a3 3 0 0 1 2.824 -2.995l.176 -.005zm3.707 10.293a1 1 0 0 0 -1.414 0l-3.293 3.292l-1.293 -1.292a1 1 0 1 0 -1.414 1.414l2 2a1 1 0 0 0 1.414 0l4 -4a1 1 0 0 0 0 -1.414m-.707 -9.294l4 4.001h-4z" /></svg><span>View Full Resume</span></button>
         <div id="list">
             <p class="resume">Education</p>

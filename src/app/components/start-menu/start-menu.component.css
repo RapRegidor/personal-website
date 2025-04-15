@@ -57,7 +57,6 @@
 }
 
 #blocks-container{
-    height:1000px;
     width:100%;
 }
 #files-block{
@@ -97,16 +96,16 @@ figure:hover{
 
 .block{
     background-color: rgba(214, 209, 209, 0.623);
-    height: 170px;
+    height: 100px;
     width:calc(100% - 30px);
     margin:15px 15px 15px 15px;
     border-radius: 10px;
     
 }
 
-.block:hover:not(:nth-of-type(odd)){
+.block:hover{
     /* background-color: rgb(214, 209, 209); */
-    box-shadow: 0px 0px 5px 2px black;
+    box-shadow: 0px 0px 5px 2px white;
 }
 
 #squares{
@@ -114,12 +113,15 @@ figure:hover{
     flex-direction: row;
     justify-content: space-between;
     background-color: transparent;
+    width:calc(100% - 30px);
+    margin:15px 15px 15px 15px;
 }
 .square-block{
     background-color: rgba(214, 209, 209, 0.623);
     height: 170px;
     width: 170px;
     border-radius: 10px;
+    
 }
 
 .square-block:hover{
@@ -153,4 +155,76 @@ figure:hover{
 
 #close:hover{
     background-color: rgba(111, 105, 105, 0.568);
+}
+
+#spotify-block{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(25, 20, 20);
+}
+
+#spotify-container{
+    height:75%;
+    width:90%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap:25px;
+    
+}
+
+#spotify-image{
+    width:75px;
+    height:75px;
+}
+
+#spotify-text{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+#spotify-text h1{
+    font-family: 'MedievalSharp', cursive;
+    margin: 0;
+    padding: 0;
+    color:aliceblue;
+}
+#span-text{
+    height:30px;
+    overflow: hidden;
+    line-height: 30px;
+    font-size: 18px;
+    
+    font-family: 'League Spartan';
+    color:rgb(179, 255, 236);
+}
+
+#span-text span{
+    position: relative;
+    animation: rotate 15s ease infinite;
+}
+
+@keyframes rotate {
+    0%, 100%{
+        top:0;
+    }
+    33%{
+        top:0;
+    }
+    35%{
+        top:-30px;
+    }
+    64%{
+        top:-30px;
+    }
+    66%{
+        top:-60px;
+    }
+    98%{
+        top:-60px;
+    }
+
 }

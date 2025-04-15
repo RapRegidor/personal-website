@@ -5,28 +5,12 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import bootstrap from './main.server';
 
+const app = express();
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 const indexHtml = join(serverDistFolder, 'index.server.html');
-
-const app = express();
 const commonEngine = new CommonEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/**', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
-
-/**
- * Serve static files from /browser
- */
 app.get(
   '**',
   express.static(browserDistFolder, {
@@ -63,3 +47,7 @@ if (isMainModule(import.meta.url)) {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
+
+export default app;
+
+

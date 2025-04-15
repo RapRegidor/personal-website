@@ -78,6 +78,7 @@ export class TaskbarComponent implements OnInit, OnDestroy{
     if (isPlatformBrowser(this.platformId)) {
       this.getWeather(); 
     }
+    
     this.ngZone.runOutsideAngular(() => {
       this.intervalId = setInterval(() => {
         this.ngZone.run(() => {
@@ -177,6 +178,9 @@ export class TaskbarComponent implements OnInit, OnDestroy{
     }
     if(file === "hobbies"){
       return "/hobbiesFile.png"
+    }
+    if(file === "spotify"){
+      return "/spotify.png"
     }
     return;
   }

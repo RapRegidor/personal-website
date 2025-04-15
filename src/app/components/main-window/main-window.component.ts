@@ -10,11 +10,12 @@ import { HobbiesWindowComponent } from "../hobbies-window/hobbies-window.compone
 import { ToggleModeService } from '../../services/toggle-mode.service';
 import { Observable } from 'rxjs';
 import {trigger, transition, animate, style} from '@angular/animations';
+import { SpotifyComponent } from "../spotify/spotify.component";
 
 
 @Component({
   selector: 'app-main-window',
-  imports: [DragDropModule, CommonModule, AboutMeWindowComponent, ProjectsWindowComponent, ContactsWindowComponent, ResumeWindowComponent, HobbiesWindowComponent],
+  imports: [DragDropModule, CommonModule, AboutMeWindowComponent, ProjectsWindowComponent, ContactsWindowComponent, ResumeWindowComponent, HobbiesWindowComponent, SpotifyComponent],
   templateUrl: './main-window.component.html',
   styleUrl: './main-window.component.css',
   animations:[
@@ -38,6 +39,7 @@ export class MainWindowComponent {
   isProjectsOpen$!: Observable<boolean>;
   isHobbiesOpen$!: Observable<boolean>;
   isContactsOpen$!: Observable<boolean>;
+  isSpotifyOpen$!: Observable<boolean>;
 
   constructor(private fileService: OpeningFilesService, private themeService: ToggleModeService){
     this.currentStack$ = this.fileService.currentStack$;
@@ -47,6 +49,7 @@ export class MainWindowComponent {
     this.isProjectsOpen$ = this.fileService.isProjectsOpen$;
     this.isHobbiesOpen$ = this.fileService.isHobbiesOpen$;
     this.isContactsOpen$ = this.fileService.isContactsOpen$;
+    this.isSpotifyOpen$ = this.fileService.isSpotifyOpen$;
   }
   changeDisplay(file: string){
     return this.themeService.changeDisplay(file);
@@ -76,6 +79,7 @@ export class MainWindowComponent {
   maximizeProjects = false;
   maximizeHobbies = false;
   maximizeContacts = false;
+  maximizeSpotify = false;
   resizeFile(file: string){
     if(file === 'aboutMe'){
       this.maximizeAbtMe = !this.maximizeAbtMe;
@@ -91,6 +95,9 @@ export class MainWindowComponent {
     }
     if(file === 'contacts'){
       this.maximizeContacts = !this.maximizeContacts;
+    }
+    if(file === 'spotify'){
+      this.maximizeSpotify = !this.maximizeSpotify;
     }
   }
 }

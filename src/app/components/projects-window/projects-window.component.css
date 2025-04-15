@@ -53,44 +53,24 @@
     width:calc(100% - 4px);
     margin: 0px 2px 2px 2px;
     flex-grow: 1;
-    
 }
 
 #project-one{
     background-color: #EAE0D5;
-    height:100%;
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius:0px 0px 10px 10px;
 }
 
 #project-two{
     background-color: #e3c9ad;
-    height:100%;
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius:0px 0px 10px 10px;
 }
 
 #project-three{
     background-color: #e8b57e;
-    height:100%;
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius:0px 0px 10px 10px;
 }
 
 #project-four{
     background-color: #e6a865;
+}
+.projects-tab{
     height:100%;
     width:100%;
     display: flex;
@@ -99,21 +79,34 @@
     justify-content: center;
     border-radius:0px 0px 10px 10px;
 }
-
 .video-container{
     margin-top:30px;
-    max-width:50%;
-    
+    max-width:40%;
 }
 .video{
     width:100%;
     border-radius: 10px;
     box-shadow: 0px 5px 10px black;
 }
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        filter: blur(0.1rem);
+        opacity: 0;
+    }
+    to {
+        filter: blur(0rem);
+        opacity: 1;
+    }
+}
 
 .description-container{
     margin: 30px 15px 30px 15px;
-    max-width:70%;
+    max-width:1100px;
+    width:70%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 5px 10px black;

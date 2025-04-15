@@ -10,7 +10,7 @@
 
     <div class="taskbar-opened-files">
         <div class="file-containers" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
-            <button class="file-buttons"  *ngFor="let file of openedFiles$ | async" [ngClass]="{ 'active-file': currentFile === file }" (click)="handleClick(file)" cdkDrag  cdkDragLockAxis="x" cdkDragBoundary=".file-containers"  @openCloseFile>
+            <button class="file-buttons"  *ngFor="let file of openedFiles$ | async" [ngClass]="{ 'active-file': currentFile === file } " (click)="handleClick(file)" cdkDrag  cdkDragLockAxis="x" cdkDragBoundary=".file-containers"  @openCloseFile>
                 <img [src]="changeDisplay(file)" class="file-icons">
                 <ng-container *ngIf="currentStack$ | async as stack">
                     <div id="colorBlock" [ngClass]="{'color-full' : (currentFile$ | async) === file}"></div>

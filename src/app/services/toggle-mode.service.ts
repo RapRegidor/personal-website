@@ -30,6 +30,9 @@ export class ToggleModeService {
       if(file === 'contacts'){
         return '/contactsFile-light.png';
       }
+      if(file === 'spotify'){
+        return '/spotify.png';
+      }
     }else{
       if(file === 'aboutMe'){
         return '/aboutMeFile.png';
@@ -45,6 +48,9 @@ export class ToggleModeService {
       }
       if(file === 'contacts'){
         return '/contactsFile.png';
+      }
+      if(file === 'spotify'){
+        return '/spotify.png';
       }
     }
     return '';

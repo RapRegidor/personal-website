@@ -1,5 +1,5 @@
 .container{
-    background-image: url(/windows-image.jpg);
+    background-image: url(/windows-image.webp);
     background-repeat:no-repeat;
     background-size:cover;
     background-position: center;
@@ -78,23 +78,7 @@ figure:hover{
 
 }
 
-#about-me-container{
-    height:calc(100% - 35px);
-    width: 100%;
-}
-#contacts-container{
-    height:calc(100% - 35px);
-    width: 100%;
-}
-#projects-container{
-    height:calc(100% - 35px);
-    width: 100%;
-}
-#resume-container{
-    height:calc(100% - 35px);
-    width: 100%;
-}
-#hobbies-container{
+#about-me-container, #contacts-container, #projects-container, #resume-container, #hobbies-container, #spotify-container{
     height:calc(100% - 35px);
     width: 100%;
 }
