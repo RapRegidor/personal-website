@@ -65,10 +65,10 @@ export class SpotifyMainComponent implements AfterViewInit {
   @ViewChildren('playlistNames') playlistNames!: QueryList<ElementRef>;
 
   ngAfterViewInit(){
-    this.playlistNameContainers.changes.subscribe(() => {
-      this.attachResizeObserver();
-    });
-    this.attachResizeObserver();
+    // this.playlistNameContainers.changes.subscribe(() => {
+    //   this.attachResizeObserver();
+    // });
+    // this.attachResizeObserver();
   }
 
   attachResizeObserver() {
