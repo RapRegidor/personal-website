@@ -76,12 +76,13 @@ export class AboutMeWindowComponent implements AfterViewInit{
 
     const resizeObserver = new ResizeObserver(() => {
       const width = this.banner.nativeElement.offsetWidth;
-      const nameFontSize = Math.max(64, Math.min(width * 0.06, 90))
-      const descFontSize = Math.max(16, Math.min(width * 0.016, 20));
+      const nameFontSize = Math.max(52, Math.min(width * 0.06, 90))
+      const descFontSize = Math.max(12, Math.min(width * 0.016, 20));
       this.name.nativeElement.style.fontSize = `${nameFontSize}px`;
       this.desc.nativeElement.style.fontSize = `${descFontSize}px`;
       this.button.nativeElement.style.fontSize = `${descFontSize}px`;
     });
+    
     resizeObserver.observe(this.banner.nativeElement);
   }
 

@@ -4,32 +4,37 @@
     </div>
     <div id="profile">
         <div id="profile-container">
-            <div id="pfp">
-                <ng-container *ngIf="user?.images?.[0]; else noImage">
-                    <img src="{{user.images[0].url}}">
-                    
-                </ng-container>
-                <ng-template #noImage>
-                    <!-- <svg fill="#000000" viewBox="0 0 512 512" id="_x30_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M256,90 c37.02,0,67.031,35.468,67.031,79.219S293.02,248.438,256,248.438s-67.031-35.468-67.031-79.219S218.98,90,256,90z M369.46,402 H142.54c-11.378,0-20.602-9.224-20.602-20.602C121.938,328.159,181.959,285,256,285s134.062,43.159,134.062,96.398 C390.062,392.776,380.839,402,369.46,402z"></path>
-                        </g>
-                    </svg> -->
-                </ng-template>
+
+            <div id="pfp-container">
+                <div id="pfp">
+                    <ng-container *ngIf="user?.images?.[0]; else noImage">
+                        <img id="pfp-image" src="{{user.images[0].url}}" id="pfp-image">
+                        
+                    </ng-container>
+                    <ng-template #noImage>
+                        <!-- <svg fill="#000000" viewBox="0 0 512 512" id="_x30_1" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256S397.385,0,256,0z M256,90 c37.02,0,67.031,35.468,67.031,79.219S293.02,248.438,256,248.438s-67.031-35.468-67.031-79.219S218.98,90,256,90z M369.46,402 H142.54c-11.378,0-20.602-9.224-20.602-20.602C121.938,328.159,181.959,285,256,285s134.062,43.159,134.062,96.398 C390.062,392.776,380.839,402,369.46,402z"></path>
+                            </g>
+                        </svg> -->
+                    </ng-template>
                 
-                <h1>{{user.display_name}}</h1>
+                    <h1>{{user.display_name}}</h1>
+                </div>
             </div>
+
             <div id="currently-playing-container">
                 <div id="currently-playing">
 
                 </div>
             </div>
+
         </div>
     </div>
     <div id="playlists">
-        <div class="cards">
+        <!-- <div class="cards" #cards>
             <ng-container *ngIf="userPlaylists">
                 <div class="content">
                     <div class="images">
@@ -44,7 +49,25 @@
                     </div>
                 </div>
             </ng-container>
-        </div>
+        </div>  -->
+
+        <ng-container *ngIf="userPlaylists">
+            <div class="cards" *ngFor="let playlist of userPlaylists; index as i" [ngClass]="{'active-file': i === 0, 'second-file': i===1, 'third-file': i === 2, 'no-file': i > 2}" #cards @openClose>   
+                    <div class="content">
+                        <div class="images">
+                            <div class="image" [ngClass]="{'active-image': i === 0}">
+                                <img [src]="playlist.image" />
+                            </div>
+                        </div>
+                        <div class="playlistName" #playlistNameContainers>
+                            <h1 #playlistNames>
+                                {{playlist.name | slice:0:25 }}{{playlist.name.length > 25 ? '...' : ''}}
+                            </h1>
+                        </div>
+                    </div>
+            </div>
+        </ng-container>
+        
         <div class="cards2">
             <!--each playlist-->
         </div>

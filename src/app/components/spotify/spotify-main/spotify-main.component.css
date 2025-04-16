@@ -25,20 +25,29 @@
     /* align-items: center;
     justify-content: center; */
 }
+#pfp-container{
+    width:100%;
+    height:30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 #pfp{
     display: flex;
-    align-items:flex-end;
-    padding-left:80px;
+    align-items:center;
+    width:70%;
     gap:40px;
-    height:30%;
 }
 #pfp img{
     border-radius: 50%;
-    height:100px;
+    align-self: flex-end;
+    height:80%;
 }
 #pfp h1{
     display: flex;
     color:rgb(206, 254, 254);
+    font-family: 'MedievalSharp';
+    letter-spacing: 2px;
 }
 #currently-playing-container{
     height:70%;
@@ -49,7 +58,8 @@
 }
 #currently-playing{
     width:80%;
-    height: 250px;
+    min-height: 200px;
+    height:80%;
     border-radius: 25px;
     background-color: rgba(0, 0, 0, 0.355);
     display: flex;
@@ -81,11 +91,11 @@
     display: flex;
     flex-direction: row;
 }
-.cards:hover{
+.active-file:hover{
     background-color: #6f6f71;
     cursor: pointer;
 }
-.cards:hover .playlistName h1:first-of-type {
+.active-file:hover .playlistName h1:first-of-type {
     color:rgb(0, 255, 255);
 }
 .content{
@@ -96,21 +106,20 @@
     flex-direction: row;
 }
 .playlistName{
-    width:60%;
+    width:55%;
     display: flex;
     align-items: center;
 }
 .playlistName h1{
     font-family: 'MedievalSharp', cursive;
-    font-size: 36px;
+    font-size: 24px;
     margin-left: 10px;
     color:rgb(121, 233, 233);
+    
 }
 .images{
     height:100%;
-    min-width:155px;
-    width:40%;
-    max-width: 220px;
+    width:160px;
     display: flex;
     align-items: center;
 }
@@ -121,7 +130,7 @@
     inherits: false;
 }
 /* this needs to be the active album */
-.image::after, .image::before{
+.active-image::after, .active-image::before{
     --angle:0deg;
     content: '';
     position:absolute;
@@ -137,7 +146,7 @@
     animation: 2s spin linear infinite;
     
 }
-.image::before{
+.image-active::before{
     filter:blur(1.5rem);
     opacity:0.5;
 }
@@ -165,7 +174,7 @@
 }
 
 
-.cards2{
+.second-file{
     background-color: #2b2b2c;
     width:80%;
     min-height:150px;
@@ -179,7 +188,7 @@
     z-index: 98;
     filter:brightness(50%)
 }
-.cards3{
+.third-file{
     background-color: #2b2b2c;
     width:80%;
     min-height:150px;
@@ -192,4 +201,7 @@
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
     z-index: 97;
     filter:brightness(40%)
+}
+.no-file{
+    display:none;
 }

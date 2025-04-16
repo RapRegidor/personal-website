@@ -65,6 +65,7 @@ export class SpotifyLoginComponent {
       if(!event.data.error){
         console.log('success!');
         this.auth.checkSession();
+        this.auth.getPlaylists();//got to be make playlists
         //success
       }else if(!event.data.success){
         //error
